@@ -8,6 +8,6 @@ export default {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/typography'), // <-- THÊM DÒNG NÀY
+    require('@tailwindcss/typography'),
   ],
 }
