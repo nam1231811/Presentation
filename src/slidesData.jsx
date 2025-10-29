@@ -35,7 +35,7 @@ export const slidesContent = [
   // --- Slide 1: Tiêu đề ---
   {
     imageUrl:
-      "https://cdn.vietnambiz.vn/2019/9/18/dreamstimel90203178-1568799247509525047733.jpg",
+      "https://luatduonggia.vn/wp-content/uploads/2021/10/canh-tranh-doc-quyen.jpg",
     rawText:
       "CẠNH TRANH Ở CẤP ĐỘ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG. Chủ đề: Độc quyền & Độc quyền nhà nước",
     // TÁCH RA:
