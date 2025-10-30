@@ -70,92 +70,100 @@ const ShortcutHints = () => (
   </div>
 );
 
-// --- MÀN HÌNH CHÀO MỪNG --- 
-const HackerIntro = ({ onIntroFinished, theme }) => {
-  const [lines, setLines] = useState([]);
-  const [isTriggered, setIsTriggered] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+// --- NỀN ---
+const CinematicBackground = ({ bgImage }) => (
+  <div className="absolute inset-0 overflow-hidden bg-black">
+    <motion.img
+      src={bgImage}
+      alt="Background"
+      className="absolute inset-0 w-full h-full object-cover filter blur-xl brightness-50"
+      initial={{ scale: 1.1, x: 0 }}
+      animate={{ scale: 1, x: "-5%" }}
+      transition={{ 
+        duration: 40, 
+        ease: "linear", 
+        repeat: Infinity, 
+        repeatType: "reverse"
+      }}
+    />
+    <div 
+      className="absolute inset-0" 
+      style={{ 
+        backgroundImage: "radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.5) 100%)" 
+      }} 
+    />
+  </div>
+);
 
-  const bootSequence = [
-    "INITIATING PRESENTATION MODULE v2.0...",
-    "ACCESSING 'MLN122_KINH_TE_CHINH_TRI'...",
-    "LOADING DEPENDENCIES: [react, framer-motion]",
-    "COMPILING 3D RENDER ENGINE... OK",
-    "LOADING ASSETS FOR: [NHÓM 5]",
-    "...",
-    "BOOT SEQUENCE COMPLETE.",
-    "EXECUTING..."
+// --- MÀN HÌNH MỞ ĐẦU --- 
+const OpeningCredits = ({ onIntroFinished, theme, bgImage }) => {
+  const [step, setStep] = useState(0);
+  const [isTriggered, setIsTriggered] = useState(false);
+
+  const credits = [
+    { text: "Click để bắt đầu", duration: 0 },
+    { text: "Xin chào cô và các bạn!", duration: 2500 },
+    { text: "Hôm nay Nhóm 5 xin được phép thuyết trình về chủ đề:", duration: 3000 },
+    { text: "CẠNH TRANH Ở CẤP ĐỘ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG", duration: 4000 },
+    { text: "Xin mời mọi người cùng theo dõi phần thuyết trình của nhóm mình ạ!", duration: 5000 }, 
   ];
 
   useEffect(() => {
-    if (!isTriggered) return;
+    if (!isTriggered || step >= credits.length) return;
 
-    setShowCursor(false);
-    document.body.style.overflow = 'hidden';
+    if (step === credits.length - 1) {
+      const timer = setTimeout(() => {
+        onIntroFinished();
+      }, credits[step].duration);
+      return () => clearTimeout(timer);
+    }
 
-    let lineIndex = 0;
-    const interval = setInterval(() => {
-      if (lineIndex < bootSequence.length) {
-        setLines(prev => [...prev, bootSequence[lineIndex]]);
-        lineIndex++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          onIntroFinished();
-          document.body.style.overflow = '';
-        }, 1200);
-      }
-    }, 1000);
+    const timer = setTimeout(() => {
+      setStep(s => s + 1);
+    }, credits[step].duration);
 
-    return () => {
-      clearInterval(interval);
-      document.body.style.overflow = '';
-    };
-  }, [isTriggered, onIntroFinished]);
+    return () => clearTimeout(timer);
+  }, [isTriggered, step, onIntroFinished, credits]);
 
   const handleClick = () => {
     if (!isTriggered) {
       setIsTriggered(true);
+      setStep(1);
     }
   };
 
+  const currentCredit = credits[step];
+
   return (
     <motion.div
-      className={`absolute inset-0 z-[101] p-8 font-mono text-lg flex flex-col justify-center items-center cursor-pointer ${
-        theme === 'dark' ? 'bg-black text-green-400' : 'bg-gray-100 text-blue-800'
-      }`}
-      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+      className={`absolute inset-0 z-[101] flex flex-col justify-center items-center cursor-pointer overflow-hidden text-gray-100`} // <-- Sửa: Xóa bg, text luôn sáng
+      exit={{ opacity: 0, transition: { duration: 0.8, delay: 0.5 } }}
       onClick={handleClick}
     >
-      <div className="w-full max-w-2xl">
-        {lines.map((line, i) => (
-          <motion.p
-            key={i}
+      <CinematicBackground bgImage={bgImage} />
+      
+      <div className="relative z-10 p-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={step}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.1 }}
-            className="mb-1"
+            animate={{ opacity: 1, transition: { duration: 1.0 } }}
+            exit={{ opacity: 0, transition: { duration: 1.0 } }}
+            className={`font-inter text-center ${
+              step === 0 ? 'text-xl opacity-50' : 'text-3xl md:text-5xl'
+            } ${
+              step === 3 ? 'font-bold' : 'font-light'
+            }`}
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
           >
-            &gt; {line}
-          </motion.p>
-        ))}
-        {(showCursor || (isTriggered && lines.length === bootSequence.length)) && (
-          <motion.span
-            className="text-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{
-              repeat: Infinity,
-              duration: 1,
-            }}
-          >
-            _
-          </motion.span>
-        )}
+            {currentCredit.text}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </motion.div>
   );
 };
+
 
 // --- MÀN HÌNH BẮT ĐẦU ---
 const SplashScreen = ({ onStart, theme }) => {
@@ -266,6 +274,7 @@ const SlideCard = ({ index, page, totalSlides, slide, theme, handleDragEnd }) =>
 
   return (
     <motion.div
+      layoutId={`slide-card-${index}`} 
       ref={cardRef}
       key={index}
       className={`absolute w-[500px] h-[550px] top-[calc(50%-275px)] left-[calc(50%-250px)] rounded-2xl overflow-hidden transition-colors duration-300 ${ 
@@ -365,94 +374,68 @@ const Filmstrip = ({ slides, currentPage, goToSlide, theme }) => {
   );
 };
 
-// --- MÀN HÌNH TẮT MÁY ---
-const ShutdownScreen = ({ theme, onReset }) => {
-  const [lines, setLines] = useState([]);
-  const [isFadingToBlack, setIsFadingToBlack] = useState(false);
-  const [isPoweredOff, setIsPoweredOff] = useState(false);
+// --- MÀN HÌNH KẾT THÚC ---
+const ClosingCredits = ({ theme, onReset, bgImage }) => {
+  const [isFinished, setIsFinished] = useState(false);
 
-  const shutdownSequence = [
-    "PRESENTATION COMPLETE.",
-    "DISCONNECTING MODULES...",
-    "CLEARING 3D RENDER CACHE... OK",
-    "...",
-    "THANK YOU FOR YOUR ATTENTION.",
-    "GOODBYE.",
-    "POWERING OFF..."
-  ];
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    let lineIndex = 0;
-    const interval = setInterval(() => {
-      if (lineIndex < shutdownSequence.length) {
-        setLines(prev => [...prev, shutdownSequence[lineIndex]]);
-        lineIndex++;
-      } else {
-        clearInterval(interval);
-        setTimeout(() => {
-          setIsFadingToBlack(true);
-          setTimeout(() => {
-            setIsPoweredOff(true);
-          }, 1500); 
-        }, 2000); 
-      }
-    }, 1000); 
-
-    return () => {
-      clearInterval(interval);
-      document.body.style.overflow = '';
-    };
-  }, []);
+  const handleScrollEnd = () => {
+    setTimeout(() => {
+      setIsFinished(true);
+    }, 1500);
+  };
 
   const handleClick = () => {
-    if (isPoweredOff) {
+    if (isFinished) {
       onReset();
     }
   };
 
   return (
     <motion.div
-      className={`absolute inset-0 z-[102] ${
-        theme === 'dark' ? 'bg-black' : 'bg-gray-100'
-      } ${isPoweredOff ? 'cursor-pointer' : ''}`}
+      className={`absolute inset-0 z-[102] overflow-hidden ${
+        isFinished ? 'cursor-pointer' : 'cursor-default'
+      }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1.5 }}
       onClick={handleClick}
     >
+      <CinematicBackground bgImage={bgImage} />
+
+      <div className={`absolute top-0 left-0 w-full h-1/4 z-10 bg-gradient-to-b from-black to-transparent`} />
+      <div className={`absolute bottom-0 left-0 w-full h-1/4 z-10 bg-gradient-to-t from-black to-transparent`} />
+
       <motion.div
-        className={`p-8 font-mono text-lg flex flex-col justify-center items-center h-full ${
-          theme === 'dark' ? 'text-green-400' : 'text-blue-800'
-        }`}
-        animate={{ opacity: isFadingToBlack ? 0 : 1 }}
-        transition={{ duration: 1.5 }}
+        className={`font-inter text-center absolute w-full z-10 text-gray-200`} 
+        style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }} 
+        initial={{ y: "100%" }}
+        animate={{ y: "-100%" }}
+        transition={{ duration: 20, ease: "linear", delay: 1.5 }}
+        onAnimationComplete={handleScrollEnd}
       >
-        <div className="w-full max-w-2xl">
-          {lines.map((line, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.1 }}
-              className="mb-1"
-            >
-              &gt; {line}
-            </motion.p>
-          ))}
-          {lines.length === shutdownSequence.length && !isFadingToBlack && (
-            <motion.span
-              className="text-2xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1,
-              }}
-            >
-              _
-            </motion.span>
-          )}
+        <div className="py-20 space-y-10">
+          <div className="space-y-2">
+            <p className="text-xl opacity-70">ĐƯỢC LÀM BỞI</p>
+            <p className="text-3xl font-bold">[CÁC THÀNH VIÊN NHÓM 5]</p>
+          </div>
+          <div className="space-y-2">
+            <p className="text-xl opacity-70">THÀNH VIÊN</p>
+            <p className="text-2xl">[Vũ Nhật Nam - SE181565]</p>
+            <p className="text-2xl">[Hoàng Chí Trung - SE181597]</p>
+            <p className="text-2xl">[Nguyễn Quang Huy - SE181563]</p>
+            <p className="text-2xl">[Nguyễn Đức Hoàng Vũ - SE181551]</p>
+          </div>
+          <div className="space-y-2">
+            <p className="text-xl opacity-70">THIẾT KẾ & KỸ XẢO</p>
+            <p className="text-2xl">React</p>
+            <p className="text-2xl">Framer Motion</p>
+            <p className="text-2xl">Tailwind CSS</p>
+          </div>
+          <div className="space-y-2 pt-10">
+            <p className="text-3xl font-bold">RẤT CẢM ƠN</p>
+            <p className="text-3xl">Cô và các bạn đã lắng nghe</p>
+          </div>
+          <div className="h-48"></div>
         </div>
       </motion.div>
     </motion.div>
@@ -593,6 +576,8 @@ function App() {
 
   const progressPercent = ((page + 1) / totalSlides) * 100;
   const currentSlideData = slidesContent[page];
+  
+  const bgImage = useMemo(() => slidesContent[0].imageUrl, []);
 
   return (
     <div
@@ -603,9 +588,10 @@ function App() {
     >
       <AnimatePresence>
         {!introDone && (
-          <HackerIntro 
+          <OpeningCredits 
             onIntroFinished={() => setIntroDone(true)} 
             theme={theme} 
+            bgImage={bgImage}
           />
         )}
       </AnimatePresence>
@@ -656,7 +642,7 @@ function App() {
                     <motion.button whileTap={{ scale: 0.95 }} onClick={() => { toggleFullscreen(); setIsSettingsOpen(false); }} className={`flex items-center gap-3 w-full px-3 py-2 rounded-md text-left transition-colors ${theme === 'dark' ? 'text-gray-200 hover:bg-gray-700/50' : 'text-gray-700 hover:bg-gray-100'}`} >
                       {isFullscreen ? <Minimize size={20} /> : <Expand size={20} />}
                       <span>{isFullscreen ? "Thoát" : "Toàn màn hình"}</span>
-                      <span className="ml-auto text-xs font-mono opacity-60">F</span>
+                         <span className="ml-auto text-xs font-mono opacity-60">F</span>
                     </motion.button>
                     <div className="w-full h-px my-1 bg-gray-700/50" />
                     <div className="relative group">
@@ -682,7 +668,21 @@ function App() {
                   animate={{ opacity: 1, backgroundColor: theme === 'dark' ? 'rgba(30, 41, 59, 0.9)' : 'rgba(243, 244, 246, 0.9)' }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="w-full max-w-3xl mx-auto mb-8 sticky top-0 z-10"> <div className="relative"> <input type="search" placeholder="Tìm kiếm nội dung slide..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={`w-full p-4 pl-12 border rounded-full text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'bg-white border-gray-300 text-gray-800 placeholder-gray-400 shadow-sm'}`} /> <Search className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-400'}`} size={20} /> </div> </div> <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"> {filteredSlides.map((slide, index) => { const originalIndex = slidesContent.findIndex(s => s === slide); return ( <motion.div key={originalIndex} className={`aspect-[16/10] rounded-lg shadow-lg cursor-pointer border overflow-hidden relative group transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-800/50 border-gray-700/50 hover:border-gray-600' : 'bg-white border-gray-200 hover:border-gray-300'}`} onClick={() => { goToSlide(originalIndex); }} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} whileHover={{ scale: 1.03, boxShadow: theme === 'dark' ? "0 0 15px rgba(59, 130, 246, 0.4)" : "0 0 20px rgba(59, 130, 246, 0.2)" }} > <img src={slide.imageUrl} alt={`Slide ${originalIndex + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onError={(e) => { e.target.onerror = null; e.target.src=`https://placehold.co/800x600/${theme === 'dark' ? '374151/9ca3af' : 'e5e7eb/6b7280'}?text=Error`; }} /> <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> <span className="absolute bottom-1.5 left-2.5 text-xl font-bold text-white tabular-nums drop-shadow"> {originalIndex + 1} </span> </motion.div> ); })} {filteredSlides.length === 0 && ( <p className={`col-span-full text-center text-xl mt-10 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}> Không tìm thấy slide nào phù hợp với "{searchTerm}" </p> )} </div>
+                  <div className="w-full max-w-3xl mx-auto mb-8 sticky top-0 z-10"> <div className="relative"> <input type="search" placeholder="Tìm kiếm nội dung slide..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={`w-full p-4 pl-12 border rounded-full text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'bg-white border-gray-300 text-gray-800 placeholder-gray-400 shadow-sm'}`} /> <Search className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-400'}`} size={20} /> </div> </div> <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"> {filteredSlides.map((slide, index) => { const originalIndex = slidesContent.findIndex(s => s === slide); return ( 
+                    <motion.div 
+                      layoutId={`slide-card-${originalIndex}`} 
+                      key={originalIndex} 
+                      className={`aspect-[16/10] rounded-lg shadow-lg cursor-pointer border overflow-hidden relative group transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-800/50 border-gray-700/50 hover:border-gray-600' : 'bg-white border-gray-200 hover:border-gray-300'}`} 
+                      onClick={() => { goToSlide(originalIndex); }} 
+                      initial={{ opacity: 0, scale: 0.9 }} 
+                      animate={{ opacity: 1, scale: 1 }} 
+                      whileHover={{ scale: 1.03, boxShadow: theme === 'dark' ? "0 0 15px rgba(59, 130, 246, 0.4)" : "0 0 20px rgba(59, 130, 246, 0.2)" }} 
+                    > 
+                      <img src={slide.imageUrl} alt={`Slide ${originalIndex + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" onError={(e) => { e.target.onerror = null; e.target.src=`https://placehold.co/800x600/${theme === 'dark' ? '374151/9ca3af' : 'e5e7eb/6b7280'}?text=Error`; }} /> 
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" /> 
+                      <span className="absolute bottom-1.5 left-2.5 text-xl font-bold text-white tabular-nums drop-shadow"> {originalIndex + 1} </span> 
+                    </motion.div> 
+                  ); })} {filteredSlides.length === 0 && ( <p className={`col-span-full text-center text-xl mt-10 transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}> Không tìm thấy slide nào phù hợp với "{searchTerm}" </p> )} </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -733,7 +733,7 @@ function App() {
               <Filmstrip
                 slides={slidesContent}
                 currentPage={page}
-                  goToSlide={goToSlide}
+                goToSlide={goToSlide}
                 theme={theme}
               />
             </div>
@@ -752,9 +752,10 @@ function App() {
       {/* --- MÀN HÌNH TẮT MÁY --- */}
       <AnimatePresence>
         {isShuttingDown && (
-          <ShutdownScreen 
+          <ClosingCredits 
             theme={theme} 
             onReset={handleResetApp} 
+            bgImage={bgImage}
           />
         )}
       </AnimatePresence>
@@ -763,3 +764,4 @@ function App() {
 }
 
 export default App;
+
