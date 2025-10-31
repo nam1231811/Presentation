@@ -35,7 +35,7 @@ export const slidesContent = [
   // --- Slide 1: Tiêu đề ---
   {
     imageUrl:
-      "https://luatduonggia.vn/wp-content/uploads/2021/10/canh-tranh-doc-quyen.jpg",
+      "https://res.cloudinary.com/dlk3w4aer/image/upload/v1761871967/h%C3%ACnh_%E1%BA%A3nh_2025-10-31_075208379_wvzhpq.png",
     rawText:
       "CẠNH TRANH Ở CẤP ĐỘ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG. Chủ đề: Độc quyền & Độc quyền nhà nước",
     // TÁCH RA:
@@ -53,7 +53,7 @@ export const slidesContent = [
   // --- Slide 2: Độc quyền là gì? ---
   {
     imageUrl:
-      "https://cdn0.iconfinder.com/data/icons/economic-challenges-2/512/06_Monopoly-1024.png",
+      "https://images.fineartamerica.com/images/artworkimages/medium/3/marx-engels-and-lenin-beltschazar-transparent.png",
     rawText:
       "ĐỘC QUYỀN LÀ GÌ? Dự báo (C.Mác & Ph.Ăngghen): Tự do cạnh tranh → Tích tụ & tập trung sản xuất → Độc quyền. Khái niệm: Độc quyền là sự liên minh giữa các doanh nghiệp lớn. Mục đích: Thâu tóm việc sản xuất và tiêu thụ hàng hóa. Định ra giá cả độc quyền. Thu lợi nhuận độc quyền cao.",
     title: "ĐỘC QUYỀN LÀ GÌ?",
@@ -81,7 +81,7 @@ export const slidesContent = [
  // --- Slide 3: Nguyên nhân hình thành ĐQ ---
   {
     imageUrl:
-      "https://seocom.agency/wp-content/uploads/2025/03/que-es-query-seocom-agency.webp",
+      "https://tapchicongsan.org.vn/documents/20182/100454834/LENIN3.jpg/0d5eca96-3fed-44f1-a282-e9d937b248e6?t=1619604064344",
     rawText:
       "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN. 1. Sự phát triển của Lực lượng sản xuất: Tiến bộ KHKT đòi hỏi vốn lớn, thúc đẩy tích tụ và tập trung sản xuất. 2. Cạnh tranh gay gắt: Doanh nghiệp nhỏ phá sản, doanh nghiệp lớn phải liên kết. 3. Khủng hoảng & Hệ thống tín dụng: Khủng hoảng kinh tế và sự phát triển của công ty cổ phần trở thành đòn bẩy.",
     title: "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN",
@@ -107,7 +107,7 @@ export const slidesContent = [
   // --- Slide 4: Giá cả & Lợi nhuận ĐQ ---
   {
     imageUrl:
-      "https://openend.vn/wp-content/uploads/2021/12/chin-luoc-dinh-gia-trong-kinh-doanh-scaled.jpg",
+      "https://cdn.luatvietnam.vn/uploaded/Images/Original/2023/07/05/nguoi_lao_dong_bi_boc_lot_0507155506.png",
     rawText:
       "GIÁ CẢ & LỢI NHUẬN ĐỘC QUYỀN. Giá cả độc quyền: Áp đặt giá bán cao. Áp đặt giá mua thấp. Nguồn gốc Lợi nhuận độc quyền cao: Lao động của công nhân trong và ngoài xí nghiệp độc quyền. Giá trị thặng dư của tư bản vừa và nhỏ. Lao động của người sản xuất nhỏ, nhân dân thuộc địa.",
     title: "GIÁ CẢ & LỢI NHUẬN ĐỘC QUYỀN",
@@ -140,7 +140,7 @@ export const slidesContent = [
       "https://cdn.luatminhkhue.vn/lmk/articles/82/411138/phan-tich-chuc-nang-cua-nha-nuoc-viet-nam-hien-nay---411138.jpg",
     rawText:
       "ĐỘC QUYỀN NHÀ NƯỚC (ĐQNN). Khái niệm: Là kiểu độc quyền trong đó nhà nước nắm giữ vị thế độc quyền ở những lĩnh vực then chốt. Bản chất (trong CNTB): Sự 'cộng sinh' giữa độc quyền tư nhân và sức mạnh nhà nước. Phục vụ lợi ích của tổ chức độc quyền tư nhân.",
-    title: "ĐỘC QUYỀN NHÀ NƯỚC (ĐQNN)",
+    title: "ĐỘC QUYỀN NHÀ NƯỚC",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -164,10 +164,10 @@ export const slidesContent = [
   // --- Slide 6: Nguyên nhân hình thành ĐQNN ---
   {
     imageUrl:
-      "https://seocom.agency/wp-content/uploads/2025/03/que-es-query-seocom-agency.webp",
+      "https://images2.thanhnien.vn/528068263637045248/2024/9/23/vna-potal-tong-bi-thu-chu-tich-nuoc-du-le-ky-niem-1-nam-doi-tac-chien-luoc-toan-dien-viet-nam-hoa-ky-7610501-6898-17270787830301167909334.jpg",
     rawText:
       "NGUYÊN NHÂN HÌNH THÀNH ĐQNN. 1. Do sản xuất xã hội hóa cao: Đòi hỏi sự điều tiết từ trung tâm (nhà nước). 2. Đầu tư vào kết cấu hạ tầng: Các ngành (năng lượng, giao thông...) vốn lớn, thu hồi chậm. Nhà nước phải đứng ra. 3. Giải quyết mâu thuẫn xã hội: Nhà nước can thiệp (trợ cấp, phúc lợi) để xoa dịu mâu thuẫn. 4. Quan hệ quốc tế: Điều tiết các quan hệ kinh tế quốc tế.",
-    title: "NGUYÊN NHÂN HÌNH THÀNH ĐQNN",
+    title: "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN NHÀ NƯỚC",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -183,7 +183,7 @@ export const slidesContent = [
   // --- Slide 7: Tác động tích cực của ĐQ ---
   {
     imageUrl:
-      "https://media.zim.vn/66bc1e4437731d74539e4ffe/hoc-tap-tich-cuc.jpg",
+      "https://image.bnews.vn/MediaUpload/Org/2023/12/11/img-9188-20231211183904.jpg",
     rawText:
       "TÁC ĐỘNG TÍCH CỰC CỦA ĐỘC QUYỀN. 1. Thúc đẩy tiến bộ kỹ thuật: Có khả năng lớn (tài chính) để R&D. 2. Tăng năng suất & năng lực cạnh tranh: Có ưu thế vốn để ứng dụng công nghệ mới. 3. Thúc đẩy sản xuất lớn, hiện đại: Tập trung sức mạnh kinh tế để đầu tư vào lĩnh vực trọng điểm.",
     title: "TÁC ĐỘNG TÍCH CỰC CỦA ĐỘC QUYỀN",
@@ -201,7 +201,7 @@ export const slidesContent = [
   // --- Slide 8: Tác động tiêu cực của ĐQ ---
   {
     imageUrl:
-      "https://media.thaythichtructhaiminh.com/files/do_hang/2023/07/23/neu-khong-tim-duoc-manh-moi-cua-cam-xuc-tieu-cuc-chung-ta-chi-can-nhan-dien-doi-dien-voi-no-1144.webp",
+      "https://bcp.cdnchinhphu.vn/334894974524682240/2022/12/24/anh-4-1671856136330720778749.jpg",
     rawText:
       "TÁC ĐỘNG TIÊU CỰC CỦA ĐỘC QUYỀN. 1. Gây thiệt hại cho người tiêu dùng: Áp đặt giá bán cao, giá mua thấp. 2. Kìm hãm tiến bộ kỹ thuật: Có khả năng R&D, nhưng có thể 'kìm hãm' nếu R&D đe dọa vị thế độc quyền. 3. Tăng phân hóa giàu nghèo & Lợi ích nhóm: Chi phối kinh tế, xã hội vì lợi ích nhóm.",
     title: "TÁC ĐỘNG TIÊU CỰC CỦA ĐỘC QUYỀN",
@@ -219,10 +219,10 @@ export const slidesContent = [
   // --- Slide 9: Cạnh tranh trong trạng thái ĐQ ---
   {
     imageUrl:
-      "https://img.timviec.com.vn/2020/04/loi-the-canh-tranh-la-gi-1.jpg",
+      "https://api.toploigiai.vn/storage/uploads/ban-chat-cua-chu-nghia-tu-ban-doc-quyen-nha-nuoc-la-gi_1",
     rawText:
       "CẠNH TRANH TRONG TRẠNG THÁI ĐỘC QUYỀN. Độc quyền không thủ tiêu cạnh tranh, mà làm nó đa dạng và gay gắt hơn. Các hình thức cạnh tranh mới: 1. Giữa độc quyền vs. ngoài độc quyền. 2. Giữa các tổ chức độc quyền với nhau. 3. Cạnh tranh nội bộ tổ chức độc quyền.",
-    title: "CẠNH TRANH TRONG TRẠNG THÁI ĐQ",
+    title: "CẠNH TRANH TRONG TRẠNG THÁI ĐỘC QUYỀN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -245,7 +245,7 @@ export const slidesContent = [
   // --- Slide 10: Kết luận (Phần 1) ---
   {
     imageUrl:
-      "https://png.pngtree.com/png-vector/20190809/ourlarge/pngtree-choice-conclusion-court-judgment-law-blue-icon-on-abstract-c-png-image_1652976.jpg",
+      "https://i.redd.it/ptydtdi6jn491.jpg",
     rawText:
       "Kết luận (Phần 4.1). Trong nền kinh tế thị trường hiện đại, Cạnh tranh và Độc quyền luôn cùng tồn tại song hành với nhau.",
     title: "KẾT LUẬN (PHẦN 4.1)",
@@ -264,10 +264,10 @@ export const slidesContent = [
   // --- Slide 11: 5 Đặc điểm của ĐQ (Lênin) ---
   {
     imageUrl:
-      "https://thesaigontimes.vn/wp-content/uploads/2022/10/kinhte.jpg",
+      "https://as1.ftcdn.net/v2/jpg/01/20/57/42/1000_F_120574212_GvxCtULmstescUI0vehjptnhEphRuRW1.jpg",
     rawText:
       "5 ĐẶC ĐIỂM KINH TẾ CỦA ĐỘC QUYỀN (V.I. LÊNIN). 1. Các tổ chức độc quyền có quy mô tích tụ và tập trung tư bản lớn. 2. Sức mạnh của ĐQ do tư bản tài chính và hệ thống tài phiệt chi phối. 3. Xuất khẩu tư bản trở thành phổ biến. 4. Cạnh tranh để phân chia thị trường thế giới. 5. Lôi kéo chính phủ vào việc phân định khu vực lãnh thổ.",
-    title: "5 ĐẶC ĐIỂM KINH TẾ CỦA ĐQ (LÊNIN)",
+    title: "5 ĐẶC ĐIỂM KINH TẾ CỦA ĐỘC QUYỀN THEO LÊNIN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8">
@@ -284,10 +284,10 @@ export const slidesContent = [
   // --- Slide 12: Đặc điểm 1: Tích tụ & Tập trung ---
   {
     imageUrl:
-      "https://fundsnetservices.com/wp-content/uploads/capital-accumulation.jpg",
+      "https://dddn.1cdn.vn/2019/03/21/diendandoanhnghiep.vn-media-uploaded-473-2019-03-20-_tb2.jpg",
     rawText:
       "ĐẶC ĐIỂM 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN LỚN. Các hình thức độc quyền (từ thấp đến cao): Cartel (Các-ten): Thỏa thuận giá cả, sản lượng. (Độc lập sản xuất & lưu thông). Syndicate (Xanh-đi-ca): Mất độc lập lưu thông (mua, bán chung). Trust (Tờ-rớt): Mất cả độc lập sản xuất & lưu thông (do 1 ban quản trị chung). Consortium (Công-xoóc-xi-om): Hình thức cao nhất. Liên kết nhiều ngành (liên kết dọc), phụ thuộc tài chính.",
-    title: "ĐĐ 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN LỚN",
+    title: "ĐẶC ĐIỂM 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN LỚN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -319,10 +319,10 @@ export const slidesContent = [
   // --- Slide 13: Đặc điểm 2: Tư bản tài chính & Tài phiệt ---
   {
     imageUrl:
-      "http://tcorp.vn/wp-content/uploads/2023/05/gold-stacking-vector-1565671221188512658446.jpg",
+      "https://simg.zalopay.com.vn/zlp-website/assets/thumb_sach_dau_tu_tai_chinh_fa9058fbc6.jpg",
     rawText:
       "ĐẶC ĐIỂM 2: TƯ BẢN TÀI CHÍNH VÀ TÀI PHIỆT. Tư bản tài chính (Financial Capital): Là sự 'hợp nhất' giữa tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền. Tài phiệt (Financial Oligarchy): Một nhóm nhỏ các nhà tư bản kếch xù chi phối toàn bộ kinh tế, chính trị. Phương thức thống trị: 'Chế độ tham dự' (Mua cổ phiếu khống chế 'công ty mẹ' → mẹ chi phối con → con chi phối cháu...).",
-    title: "ĐĐ 2: TƯ BẢN TÀI CHÍNH VÀ TÀI PHIỆT",
+    title: "ĐẶC ĐIỂM 2: TƯ BẢN TÀI CHÍNH VÀ TÀI PHIỆT",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -351,17 +351,17 @@ export const slidesContent = [
   // --- Slide 14: Đặc điểm 3: Xuất khẩu tư bản (XKTB) ---
   {
     imageUrl:
-      "https://interlogistics.com.vn/static/1434/2023/08/15/export47.jpg",
+      "https://image.vietstock.vn/2019/02/28/FDI-Viet-Nam.jpg",
     rawText:
       "ĐẶC ĐIỂM 3: XUẤT KHẨU TƯ BẢN (XKTB). Khái niệm: Là xuất khẩu giá trị (đầu tư) ra nước ngoài nhằm thu giá trị thặng dư. Hai hình thức XKTB: 1. Đầu tư trực tiếp (FDI): Xây dựng/mua lại xí nghiệp ở nước ngoài, trực tiếp kinh doanh. 2. Đầu tư gián tiếp: Cho vay thu lợi tức, mua cổ phần, cổ phiếu... (không trực tiếp tham gia quản lý).",
-    title: "ĐĐ 3: XUẤT KHẨU TƯ BẢN (XKTB)",
+    title: "ĐẶC ĐIỂM 3: XUẤT KHẨU TƯ BẢN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
           <ListItem title="Khái niệm">
             Là xuất khẩu giá trị (đầu tư) ra nước ngoài nhằm thu giá trị thặng dư.
           </ListItem>
-          <ListItem title="Hai hình thức XKTB">
+          <ListItem title="Hai hình thức Xuất khẩu Tư bản">
             <ul>
               <SubItem>
                 <strong>1. Đầu tư trực tiếp (FDI):</strong> Xây dựng/mua lại xí
@@ -381,10 +381,10 @@ export const slidesContent = [
   // --- Slide 15: Đặc điểm 4 & 5: Phân chia thế giới ---
   {
     imageUrl:
-      "https://gobranding.com.vn/wp-content/uploads/2023/06/phan-tich-thi-truong-02.jpg",
+      "https://img.oldthing.net/7580/25119302/0/n/AK-Das-Zentrum-Die-Sozialdemokratie-gegen-Weltpolitik-gegen-Kolonien-gegen-Heer-und-Flotte.jpg?t=1555070541",
     rawText:
       "ĐẶC ĐIỂM 4 & 5: PHÂN CHIA THẾ GIỚI. 4. Phân chia thị trường (Kinh tế): XKTB tăng → phân chia thế giới về kinh tế. 5. Phân chia lãnh thổ (Ảnh hưởng): Cạnh tranh nguyên liệu → đấu tranh chiếm thuộc địa. Đòi chia lại lãnh thổ → nguyên nhân chiến tranh. Hiện nay: Chủ nghĩa thực dân mới (dùng viện trợ kinh tế, kỹ thuật, quân sự).",
-    title: "ĐĐ 4 & 5: PHÂN CHIA THẾ GIỚI",
+    title: "ĐẶC ĐIỂM 4 & 5: PHÂN CHIA THẾ GIỚI",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -411,10 +411,10 @@ export const slidesContent = [
   // --- Slide 16: Đặc trưng của ĐQNN ---
   {
     imageUrl:
-      "https://9746c6837f.vws.vegacdn.vn/posts/files/dac-diem-cua-kinh-te-thi-truong.jpg",
+      "https://anticap.wordpress.com/files/2010/01/capitalist-greed.jpg",
     rawText:
       "ĐẶC TRƯNG KINH TẾ CỦA ĐỘC QUYỀN NHÀ NƯỚC. 1. Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước. 2. Sự hình thành, phát triển sở hữu nhà nước. 3. ĐQNN trở thành công cụ để nhà nước điều tiết nền kinh tế.",
-    title: "ĐẶC TRƯNG KINH TẾ CỦA ĐQNN",
+    title: "ĐẶC TRƯNG KINH TẾ CỦA ĐỘC QUYỀN NHÀ NƯỚC",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8">
@@ -429,10 +429,10 @@ export const slidesContent = [
   // --- Slide 17: ĐQNN - Đặc trưng 1: Kết hợp nhân sự ---
   {
     imageUrl:
-      "https://1office.vn/wp-content/uploads/2022/11/10-tinh-huong-nhan-su-02-2048x1365.jpg",
+      "https://cdnb.artstation.com/p/assets/images/images/052/407/947/large/bidyut-bikash-mohan-45-vl-20220805124558-01.jpg?1659706217",
     rawText:
       "ĐQNN (1): SỰ KẾT HỢP VỀ NHÂN SỰ. V.I.Lênin: 'Hôm nay là bộ trưởng, ngày mai là chủ ngân hàng...'. Cơ chế: Thông qua các đảng phái và các Hội chủ xí nghiệp độc quyền. Hội chủ này là 'chính phủ đằng sau chính phủ'. Hình thức (Sự thâm nhập lẫn nhau): Đại biểu của độc quyền tham gia vào bộ máy nhà nước. Quan chức nhà nước được 'cài cắm' vào ban quản trị của tổ chức độc quyền.",
-    title: "ĐQNN (1): SỰ KẾT HỢP VỀ NHÂN SỰ",
+    title: "ĐỘC QUYỀN NHÀ NƯỚC (1): SỰ KẾT HỢP VỀ NHÂN SỰ",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -471,8 +471,8 @@ export const slidesContent = [
     imageUrl:
       "https://static.hieuluat.vn/uploaded/Images/Original/2023/01/03/Quyen-tham-gia-quan-ly-Nha-nuoc-xa-hoi_0301145614.jpg",
     rawText:
-      "ĐQNN (2): SỞ HỮU NHÀ NƯỚC. Bản chất: Là sở hữu tập thể của giai cấp tư sản, phục vụ lợi ích của tư bản độc quyền. Vai trò: Mở rộng sản xuất cho ĐQ; Giúp ĐQ di chuyển vốn; Làm chỗ dựa cho sự điều tiết kinh tế. Thị trường nhà nước: Nhà nước trở thành khách hàng 'bao mua' sản phẩm (đặc biệt là đơn hàng quân sự), đảm bảo lợi nhuận cao và ổn định cho ĐQ.",
-    title: "ĐQNN (2): SỞ HỮU NHÀ NƯỚC",
+      "ĐỘC QUYỀN NHÀ NƯỚC (2): SỞ HỮU NHÀ NƯỚC. Bản chất: Là sở hữu tập thể của giai cấp tư sản, phục vụ lợi ích của tư bản độc quyền. Vai trò: Mở rộng sản xuất cho ĐQ; Giúp ĐQ di chuyển vốn; Làm chỗ dựa cho sự điều tiết kinh tế. Thị trường nhà nước: Nhà nước trở thành khách hàng 'bao mua' sản phẩm (đặc biệt là đơn hàng quân sự), đảm bảo lợi nhuận cao và ổn định cho ĐQ.",
+    title: "ĐỘC QUYỀN NHÀ NƯỚC (2): SỞ HỮU NHÀ NƯỚC",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -487,10 +487,10 @@ export const slidesContent = [
   // --- Slide 19: ĐQNN - Đặc trưng 3: Điều tiết kinh tế ---
   {
     imageUrl:
-      "https://cuthongthai.vn/wp-content/uploads/2022/12/o437681715031-15676768865582057261744.jpg",
+      "https://fileportalcms.mpi.gov.vn/Tinbai/NoiDung/2019/10/15/44297/3.jpg",
     rawText:
       "ĐQNN (3): NHÀ NƯỚC ĐIỀU TIẾT NỀN KINH TẾ. Công cụ điều tiết: Ngân sách, thuế; Hệ thống tiền tệ, tín dụng; Doanh nghiệp nhà nước; Kế hoạch hóa... Cơ chế điều tiết: Là sự dung hợp của 3 cơ chế: Thị trường, Độc quyền tư nhân, và Điều tiết của nhà nước. Mục đích: Phục vụ lợi ích của chủ nghĩa tư bản độc quyền.",
-    title: "ĐQNN (3): NHÀ NƯỚC ĐIỀU TIẾT KINH TẾ",
+    title: "ĐỘC QUYỀN NHÀ NƯỚC (3): NHÀ NƯỚC ĐIỀU TIẾT KINH TẾ",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -505,10 +505,10 @@ export const slidesContent = [
   // --- Slide 20: BHM 1: Tích tụ & Tập trung ---
   {
     imageUrl:
-      "https://vieclam123.vn/ckfinder/userfiles/images/images/ban-chat-cua-tich-luy-tu-ban.jpg",
+      "https://hrchannels.com/uptalent/attachments/images/20230426/104233019_cong-ty-da-quoc-gia-8.jpg",
     rawText:
       "BIỂU HIỆN MỚI (BHM) 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN. Hình thức tổ chức mới (Công ty xuyên quốc gia): Concern (Consơn): Độc quyền đa ngành, (Để đối phó luật chống độc quyền). Conglomerate (Công-gơ-lô-mê-rết): Kết hợp các hãng không liên quan. (Mục đích: thu lợi từ chứng khoán). Vai trò của doanh nghiệp vừa và nhỏ (SMEs): Vẫn tồn tại và quan trọng. (Phụ thuộc vào Concern; Có thế mạnh riêng).",
-    title: "BHM 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN",
+    title: "BIỂU HIỆN MỚI 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -540,10 +540,10 @@ export const slidesContent = [
   // --- Slide 21: BHM 2: Tư bản tài chính ---
   {
     imageUrl:
-      "https://www.pace.edu.vn/uploads/news/2023/05/quan-tri-chien-luoc.jpg",
+      "https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/49412bf00eda11ecbfa285ca4b16aa04.jpeg",
     rawText:
       "BHM 2: VAI TRÒ CỦA TƯ BẢN TÀI CHÍNH. Mở rộng phạm vi: Liên kết được mở rộng ra nhiều ngành, tạo thành các tổ hợp đa dạng (công - nông - thương - tín - dịch vụ). Thay đổi cơ chế khống chế: 'Chế độ tham dự' được bổ sung thêm 'chế độ uỷ nhiệm'. Quốc tế hóa: Thành lập các ngân hàng đa quốc gia; ra đời các trung tâm tài chính thế giới.",
-    title: "BHM 2: VAI TRÒ CỦA TƯ BẢN TÀI CHÍNH",
+    title: "BIỂU HIỆN MỚI 2: VAI TRÒ CỦA TƯ BẢN TÀI CHÍNH",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -558,10 +558,10 @@ export const slidesContent = [
   // --- Slide 22: BHM 3: Xuất khẩu tư bản (XKTB) ---
   {
     imageUrl:
-      "https://interlogistics.com.vn/static/1434/2023/08/15/export47.jpg",
+      "https://res.cloudinary.com/dlk3w4aer/image/upload/v1761874374/phat-trien-thi-truong-xuat-khau-1200x674_f1813_ghpma6.jpg",
     rawText:
       "BHM 3: XUẤT KHẨU TƯ BẢN (XKTB). 1. Thay đổi về hướng: Trước: Nước phát triển → Nước kém phát triển. Nay: Dòng vốn chảy qua lại giữa các nước phát triển với nhau. 2. Thay đổi về chủ thể: Vai trò của Công ty xuyên quốc gia (TNCs) ngày càng to lớn. 3. Thay đổi về hình thức: Xuất hiện hình thức mới như BOT, BT. 4. Thay đổi về nguyên tắc: Nguyên tắc cùng có lợi được đề cao.",
-    title: "BHM 3: XUẤT KHẨU TƯ BẢN (XKTB)",
+    title: "BIỂU HIỆN MỚI 3: XUẤT KHẨU TƯ BẢN",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8 text-xl">
@@ -585,10 +585,10 @@ export const slidesContent = [
   // --- Slide 23: BHM 4 & 5: Phân chia thị trường & Lãnh thổ ---
   {
     imageUrl:
-      "https://accesstrade.vn/wp-content/uploads/2022/10/phan-khuc-thi-truong-la-gi-1.jpg",
+      "https://api.toploigiai.vn/storage/uploads/ly-thuyet-su-8-bai-13-chien-tranh-the-gioi-thu-nhat-1914-1918_1.jpg",
     rawText:
       "BHM 4 & 5: PHÂN CHIA THỊ TRƯỜNG & LÃNH THỔ. Phân chia thị trường (Kinh tế): Bị tác động bởi 2 xu hướng: Toàn cầu hóa (do TNCs) và Khu vực hóa (EU, NAFTA, OPEC...). Phân chia lãnh thổ (Ảnh hưởng): Hình thức mới: 'Chiến lược biên giới mềm', bành trướng 'biên giới kinh tế'. Thay thế chiến tranh thế giới bằng chiến tranh thương mại, sắc tộc...",
-    title: "BHM 4 & 5: PHÂN CHIA THỊ TRƯỜNG & LÃNH THỔ",
+    title: "BIỂU HIỆN MỚI 4 & 5: PHÂN CHIA THỊ TRƯỜNG & LÃNH THỔ",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -614,10 +614,10 @@ export const slidesContent = [
   // --- Slide 24: BHM của ĐQNN (P.1) ---
   {
     imageUrl:
-      "https://easyedu.vn/wp-content/uploads/2021/01/33948420.jpg",
+      "https://hocluat.vn/wp-content/uploads/2020/01/nha-nuoc-chu-no.jpg",
     rawText:
       "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.1). 1. Về quan hệ nhân sự: Thể chế Đa nguyên phổ biến; xuất hiện cơ chế thỏa hiệp. 2. Về sở hữu nhà nước (Vai trò Nhà nước): Nhà nước tăng đầu tư vào R&D, kết cấu hạ tầng (gánh chịu rủi ro). Là nhân tố quyết định ổn định kinh tế vĩ mô. Vai trò 'giải cứu': Dùng ngân sách cứu các tập đoàn lớn (Vd: Citigroup, AIG 2008).",
-    title: "BHM CỦA ĐQNN (P.1)",
+    title: "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.1)",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -644,10 +644,10 @@ export const slidesContent = [
   // --- Slide 25: BHM của ĐQNN (P.2) ---
   {
     imageUrl:
-      "https://9746c6837f.vws.vegacdn.vn/posts/files/cac-chu-the-trong-nen-kinh-te-thi-truong.jpg",
+      "https://cdn2.tuoitre.vn/thumb_w/1200/2020/1/9/thu-tuong-chung-kien-le-ky-cong-ham-1-1578577645983761692652-crop-15785778422881917397433.jpg",
     rawText:
       "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.2). 3. Về vai trò điều tiết kinh tế: Điều tiết chính trị: Dùng 'Đa nguyên tư sản' để làm dịu đấu tranh. Điều tiết kinh tế (Viện trợ ODA): Trở thành công cụ điều tiết kinh tế TRONG NƯỚC. (Đẩy hàng tồn kho, công nghệ lỗi thời). Nước nhận viện trợ chủ yếu nhận hàng hóa, chuyên gia của nước cung cấp.",
-    title: "BHM CỦA ĐQNN (P.2)",
+    title: "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.2)",
     details: (
       <>
         <motion.ul variants={contentChildVariants} className="space-y-4">
@@ -728,7 +728,7 @@ export const slidesContent = [
 
    // --- SLIDE 27: REFERENCES ---
   {
-    imageUrl: "https://cdn-icons-png.flaticon.com/512/3476/3476029.png",
+    imageUrl: "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/giao_trinh_kinh_te_chinh_tri_mac___lenin_danh_cho_bac_dai_hoc_he_chuyen_ly_luan_chinh_tri/2022_11_18_11_38_47_1-390x510.jpg",
     rawText: "Tài liệu tham khảo. Giáo trình Kinh tế chính trị Mác - Lênin. Các bài báo và tài liệu liên quan.",
     title: "TÀI LIỆU THAM KHẢO",
     details: (
