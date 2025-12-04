@@ -1,747 +1,373 @@
-import React from "react";
 import { motion } from "framer-motion";
 
-// --- Helper Components ---
-
 const contentChildVariants = {
-  initial: (direction) => ({ opacity: 0, y: direction > 0 ? 15 : -15 }),
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  initial: (direction) => ({ opacity: 0, y: direction > 0 ? 15 : -15 }),
+  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const ListItem = ({ title, children, className = "" }) => (
-  <motion.li variants={contentChildVariants} className={`mb-3 ${className}`}>
-    {title && <strong className="text-lg block mb-1">{title}</strong>}
-    {children && (
-      <div className={title ? "mt-1" : ""}>
-        {children}
-      </div>
-    )}
-  </motion.li>
+  <motion.li variants={contentChildVariants} className={`mb-3 ${className}`}>
+    {title && <strong className="text-lg block mb-1">{title}</strong>}
+    {children && (
+      <div className={title ? "mt-1" : ""}>
+        {children}
+      </div>
+    )}
+  </motion.li>
 );
 
 const SubItem = ({ children, className = "" }) => (
-  <motion.li variants={contentChildVariants} className={`flex items-start gap-2 text-base ${className}`}>
-    <svg
-      className="w-4 h-4 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-1"
-      fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7"/>
-    </svg>
-    <span>{children}</span>
-  </motion.li>
+  <motion.li variants={contentChildVariants} className={`flex items-start gap-2 text-base ${className}`}>
+    <svg
+      className="w-4 h-4 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-1"
+      fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7"/>
+    </svg>
+    <span>{children}</span>
+  </motion.li>
 );
 
 export const slidesContent = [
-  // --- Slide 1: Tiêu đề ---
-  {
-    imageUrl:
-      "https://res.cloudinary.com/dlk3w4aer/image/upload/v1761871967/h%C3%ACnh_%E1%BA%A3nh_2025-10-31_075208379_wvzhpq.png",
-    rawText:
-      "CẠNH TRANH Ở CẤP ĐỘ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG. Chủ đề: Độc quyền & Độc quyền nhà nước",
-    // TÁCH RA:
-    title: "CẠNH TRANH Ở CẤP ĐỘ ĐỘC QUYỀN TRONG NỀN KINH TẾ THỊ TRƯỜNG",
-    details: (
-      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center">
-        {/* H1 đã được chuyển lên title */}
-        <p className="text-xl">
-          Chủ đề: Cạnh tranh và độc quyền trong nền kinh tế thị trường
-        </p>
-      </motion.div>
-    ),
-  },
-
-  // --- Slide 2: Độc quyền là gì? ---
-  {
-    imageUrl:
-      "https://images.fineartamerica.com/images/artworkimages/medium/3/marx-engels-and-lenin-beltschazar-transparent.png",
-    rawText:
-      "ĐỘC QUYỀN LÀ GÌ? Dự báo (C.Mác & Ph.Ăngghen): Tự do cạnh tranh → Tích tụ & tập trung sản xuất → Độc quyền. Khái niệm: Độc quyền là sự liên minh giữa các doanh nghiệp lớn. Mục đích: Thâu tóm việc sản xuất và tiêu thụ hàng hóa. Định ra giá cả độc quyền. Thu lợi nhuận độc quyền cao.",
-    title: "ĐỘC QUYỀN LÀ GÌ?",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Dự báo (C.Mác & Ph.Ăngghen)">
-            Tự do cạnh tranh → Tích tụ & tập trung sản xuất → Độc quyền.
-          </ListItem>
-          <ListItem title="Khái niệm">
-            Độc quyền là sự liên minh giữa các doanh nghiệp lớn.
-          </ListItem>
-          <ListItem title="Mục đích">
-            <ul>
-              <SubItem>Thâu tóm việc sản xuất và tiêu thụ hàng hóa.</SubItem>
-              <SubItem>Định ra giá cả độc quyền.</SubItem>
-              <SubItem>Thu lợi nhuận độc quyền cao.</SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
- // --- Slide 3: Nguyên nhân hình thành ĐQ ---
-  {
-    imageUrl:
-      "https://tapchicongsan.org.vn/documents/20182/100454834/LENIN3.jpg/0d5eca96-3fed-44f1-a282-e9d937b248e6?t=1619604064344",
-    rawText:
-      "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN. 1. Sự phát triển của Lực lượng sản xuất: Tiến bộ KHKT đòi hỏi vốn lớn, thúc đẩy tích tụ và tập trung sản xuất. 2. Cạnh tranh gay gắt: Doanh nghiệp nhỏ phá sản, doanh nghiệp lớn phải liên kết. 3. Khủng hoảng & Hệ thống tín dụng: Khủng hoảng kinh tế và sự phát triển của công ty cổ phần trở thành đòn bẩy.",
-    title: "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="1. Sự phát triển của Lực lượng sản xuất">
-             Tiến bộ khoa học kĩ thuật đòi hỏi vốn lớn, thúc đẩy tích tụ và tập trung sản
-             xuất.
-          </ListItem>
-          <ListItem title="2. Cạnh tranh gay gắt">
-             Doanh nghiệp nhỏ phá sản, doanh nghiệp lớn phải liên kết.
-          </ListItem>
-          <ListItem title="3. Khủng hoảng & Hệ thống tín dụng">
-             Khủng hoảng kinh tế và sự phát triển của công ty cổ phần trở thành
-             đòn bẩy.
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 4: Giá cả & Lợi nhuận ĐQ ---
-  {
-    imageUrl:
-      "https://cdn.luatvietnam.vn/uploaded/Images/Original/2023/07/05/nguoi_lao_dong_bi_boc_lot_0507155506.png",
-    rawText:
-      "GIÁ CẢ & LỢI NHUẬN ĐỘC QUYỀN. Giá cả độc quyền: Áp đặt giá bán cao. Áp đặt giá mua thấp. Nguồn gốc Lợi nhuận độc quyền cao: Lao động của công nhân trong và ngoài xí nghiệp độc quyền. Giá trị thặng dư của tư bản vừa và nhỏ. Lao động của người sản xuất nhỏ, nhân dân thuộc địa.",
-    title: "GIÁ CẢ & LỢI NHUẬN ĐỘC QUYỀN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Giá cả độc quyền">
-            <ul>
-              <SubItem>Áp đặt giá bán cao.</SubItem>
-              <SubItem>Áp đặt giá mua thấp.</SubItem>
-            </ul>
-          </ListItem>
-          <ListItem title="Nguồn gốc Lợi nhuận độc quyền cao">
-            <ul>
-              <SubItem>
-                Lao động của công nhân trong và ngoài xí nghiệp độc quyền.
-              </SubItem>
-              <SubItem>Giá trị thặng dư của tư bản vừa và nhỏ.</SubItem>
-              <SubItem>Lao động của người sản xuất nhỏ, nhân dân thuộc địa.</SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 5: Độc quyền nhà nước (ĐQNN) ---
-  {
-    imageUrl:
-      "https://cdn.luatminhkhue.vn/lmk/articles/82/411138/phan-tich-chuc-nang-cua-nha-nuoc-viet-nam-hien-nay---411138.jpg",
-    rawText:
-      "ĐỘC QUYỀN NHÀ NƯỚC (ĐQNN). Khái niệm: Là kiểu độc quyền trong đó nhà nước nắm giữ vị thế độc quyền ở những lĩnh vực then chốt. Bản chất (trong CNTB): Sự 'cộng sinh' giữa độc quyền tư nhân và sức mạnh nhà nước. Phục vụ lợi ích của tổ chức độc quyền tư nhân.",
-    title: "ĐỘC QUYỀN NHÀ NƯỚC",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Khái niệm">
-            Là kiểu độc quyền trong đó nhà nước nắm giữ vị thế độc quyền ở những
-            lĩnh vực then chốt.
-          </ListItem>
-          <ListItem title="Bản chất (trong Chủ nghĩa tư bản)">
-            <ul>
-              <SubItem>
-                Sự "cộng sinh" giữa độc quyền tư nhân và sức mạnh nhà nước.
-              </SubItem>
-              <SubItem>Phục vụ lợi ích của tổ chức độc quyền tư nhân.</SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 6: Nguyên nhân hình thành ĐQNN ---
-  {
-    imageUrl:
-      "https://images2.thanhnien.vn/528068263637045248/2024/9/23/vna-potal-tong-bi-thu-chu-tich-nuoc-du-le-ky-niem-1-nam-doi-tac-chien-luoc-toan-dien-viet-nam-hoa-ky-7610501-6898-17270787830301167909334.jpg",
-    rawText:
-      "NGUYÊN NHÂN HÌNH THÀNH ĐQNN. 1. Do sản xuất xã hội hóa cao: Đòi hỏi sự điều tiết từ trung tâm (nhà nước). 2. Đầu tư vào kết cấu hạ tầng: Các ngành (năng lượng, giao thông...) vốn lớn, thu hồi chậm. Nhà nước phải đứng ra. 3. Giải quyết mâu thuẫn xã hội: Nhà nước can thiệp (trợ cấp, phúc lợi) để xoa dịu mâu thuẫn. 4. Quan hệ quốc tế: Điều tiết các quan hệ kinh tế quốc tế.",
-    title: "NGUYÊN NHÂN HÌNH THÀNH ĐỘC QUYỀN NHÀ NƯỚC",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="1. Do sản xuất xã hội hóa cao"> Đòi hỏi sự điều tiết từ trung tâm (nhà nước).</ListItem>
-          <ListItem title="2. Đầu tư vào kết cấu hạ tầng"> Các ngành (năng lượng, giao thông...) vốn lớn, thu hồi chậm. Nhà nước phải đứng ra.</ListItem>
-          <ListItem title="3. Giải quyết mâu thuẫn xã hội"> Nhà nước can thiệp (trợ cấp, phúc lợi) để xoa dịu mâu thuẫn.</ListItem>
-          <ListItem title="4. Quan hệ quốc tế"> Điều tiết các quan hệ kinh tế quốc tế.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 7: Tác động tích cực của ĐQ ---
-  {
-    imageUrl:
-      "https://image.bnews.vn/MediaUpload/Org/2023/12/11/img-9188-20231211183904.jpg",
-    rawText:
-      "TÁC ĐỘNG TÍCH CỰC CỦA ĐỘC QUYỀN. 1. Thúc đẩy tiến bộ kỹ thuật: Có khả năng lớn (tài chính) để R&D. 2. Tăng năng suất & năng lực cạnh tranh: Có ưu thế vốn để ứng dụng công nghệ mới. 3. Thúc đẩy sản xuất lớn, hiện đại: Tập trung sức mạnh kinh tế để đầu tư vào lĩnh vực trọng điểm.",
-    title: "TÁC ĐỘNG TÍCH CỰC CỦA ĐỘC QUYỀN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="1. Thúc đẩy tiến bộ kỹ thuật"> Có khả năng lớn (tài chính) để R&D.</ListItem>
-          <ListItem title="2. Tăng năng suất & năng lực cạnh tranh"> Có ưu thế vốn để ứng dụng công nghệ mới.</ListItem>
-          <ListItem title="3. Thúc đẩy sản xuất lớn, hiện đại"> Tập trung sức mạnh kinh tế để đầu tư vào lĩnh vực trọng điểm.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 8: Tác động tiêu cực của ĐQ ---
-  {
-    imageUrl:
-      "https://bcp.cdnchinhphu.vn/334894974524682240/2022/12/24/anh-4-1671856136330720778749.jpg",
-    rawText:
-      "TÁC ĐỘNG TIÊU CỰC CỦA ĐỘC QUYỀN. 1. Gây thiệt hại cho người tiêu dùng: Áp đặt giá bán cao, giá mua thấp. 2. Kìm hãm tiến bộ kỹ thuật: Có khả năng R&D, nhưng có thể 'kìm hãm' nếu R&D đe dọa vị thế độc quyền. 3. Tăng phân hóa giàu nghèo & Lợi ích nhóm: Chi phối kinh tế, xã hội vì lợi ích nhóm.",
-    title: "TÁC ĐỘNG TIÊU CỰC CỦA ĐỘC QUYỀN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="1. Gây thiệt hại cho người tiêu dùng"> Áp đặt giá bán cao, giá mua thấp.</ListItem>
-          <ListItem title="2. Kìm hãm tiến bộ kỹ thuật"> Có khả năng R&D, nhưng có thể 'kìm hãm' nếu R&D đe dọa vị thế độc quyền.</ListItem>
-          <ListItem title="3. Tăng phân hóa giàu nghèo & Lợi ích nhóm"> Chi phối kinh tế, xã hội vì lợi ích nhóm.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 9: Cạnh tranh trong trạng thái ĐQ ---
-  {
-    imageUrl:
-      "https://api.toploigiai.vn/storage/uploads/ban-chat-cua-chu-nghia-tu-ban-doc-quyen-nha-nuoc-la-gi_1",
-    rawText:
-      "CẠNH TRANH TRONG TRẠNG THÁI ĐỘC QUYỀN. Độc quyền không thủ tiêu cạnh tranh, mà làm nó đa dạng và gay gắt hơn. Các hình thức cạnh tranh mới: 1. Giữa độc quyền vs. ngoài độc quyền. 2. Giữa các tổ chức độc quyền với nhau. 3. Cạnh tranh nội bộ tổ chức độc quyền.",
-    title: "CẠNH TRANH TRONG TRẠNG THÁI ĐỘC QUYỀN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem>
-            Độc quyền <strong className="text-red-600 dark:text-red-400">không thủ tiêu</strong>{" "}
-            cạnh tranh, mà làm nó đa dạng và gay gắt hơn.
-          </ListItem>
-          <ListItem title="Các hình thức cạnh tranh mới">
-            <ul>
-              <SubItem>1. Giữa độc quyền vs. ngoài độc quyền.</SubItem>
-              <SubItem>2. Giữa các tổ chức độc quyền với nhau.</SubItem>
-              <SubItem>3. Cạnh tranh nội bộ tổ chức độc quyền.</SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 10: Kết luận (Phần 1) ---
-  {
-    imageUrl:
-      "https://i.redd.it/ptydtdi6jn491.jpg",
-    rawText:
-      "Kết luận (Phần 4.1). Trong nền kinh tế thị trường hiện đại, Cạnh tranh và Độc quyền luôn cùng tồn tại song hành với nhau.",
-    title: "KẾT LUẬN (PHẦN 4.1)",
-    details: (
-      <>
-        <motion.p variants={contentChildVariants} className="text-2xl font-semibold leading-relaxed mt-4">
-          Trong nền kinh tế thị trường hiện đại,{" "}
-          <strong className="text-3xl font-bold text-blue-600 dark:text-blue-400">Cạnh tranh</strong> và{" "}
-          <strong className="text-3xl font-bold text-purple-600 dark:text-purple-400">Độc quyền</strong>{" "}
-          luôn cùng tồn tại song hành với nhau.
-        </motion.p>
-      </>
-    ),
-  },
-
-  // --- Slide 11: 5 Đặc điểm của ĐQ (Lênin) ---
-  {
-    imageUrl:
-      "https://as1.ftcdn.net/v2/jpg/01/20/57/42/1000_F_120574212_GvxCtULmstescUI0vehjptnhEphRuRW1.jpg",
-    rawText:
-      "5 ĐẶC ĐIỂM KINH TẾ CỦA ĐỘC QUYỀN (V.I. LÊNIN). 1. Các tổ chức độc quyền có quy mô tích tụ và tập trung tư bản lớn. 2. Sức mạnh của ĐQ do tư bản tài chính và hệ thống tài phiệt chi phối. 3. Xuất khẩu tư bản trở thành phổ biến. 4. Cạnh tranh để phân chia thị trường thế giới. 5. Lôi kéo chính phủ vào việc phân định khu vực lãnh thổ.",
-    title: "5 ĐẶC ĐIỂM KINH TẾ CỦA ĐỘC QUYỀN THEO LÊNIN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8">
-          <ListItem>Tích tụ và tập trung tư bản lớn.</ListItem>
-          <ListItem>Sức mạnh của tư bản tài chính và tài phiệt.</ListItem>
-          <ListItem>Xuất khẩu tư bản trở thành phổ biến.</ListItem>
-          <ListItem>Cạnh tranh để phân chia thị trường thế giới.</ListItem>
-          <ListItem>Lôi kéo chính phủ vào việc phân định khu vực lãnh thổ.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 12: Đặc điểm 1: Tích tụ & Tập trung ---
-  {
-    imageUrl:
-      "https://dddn.1cdn.vn/2019/03/21/diendandoanhnghiep.vn-media-uploaded-473-2019-03-20-_tb2.jpg",
-    rawText:
-      "ĐẶC ĐIỂM 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN LỚN. Các hình thức độc quyền (từ thấp đến cao): Cartel (Các-ten): Thỏa thuận giá cả, sản lượng. (Độc lập sản xuất & lưu thông). Syndicate (Xanh-đi-ca): Mất độc lập lưu thông (mua, bán chung). Trust (Tờ-rớt): Mất cả độc lập sản xuất & lưu thông (do 1 ban quản trị chung). Consortium (Công-xoóc-xi-om): Hình thức cao nhất. Liên kết nhiều ngành (liên kết dọc), phụ thuộc tài chính.",
-    title: "ĐẶC ĐIỂM 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN LỚN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Các hình thức độc quyền (từ thấp đến cao)">
-            <ul>
-              <SubItem>
-                <strong>Cartel:</strong> Thỏa thuận giá cả, sản lượng. (Độc lập sản
-                xuất & lưu thông).
-              </SubItem>
-              <SubItem>
-                <strong>Syndicate:</strong> Mất độc lập lưu thông (mua, bán
-                chung).
-              </SubItem>
-              <SubItem>
-                <strong>Trust:</strong> Mất cả độc lập sản xuất & lưu thông (do 1
-                ban quản trị chung).
-              </SubItem>
-              <SubItem>
-                <strong>Consortium:</strong> Hình thức cao nhất. Liên kết nhiều
-                ngành (liên kết dọc), phụ thuộc tài chính.
-              </SubItem>
-          </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 13: Đặc điểm 2: Tư bản tài chính & Tài phiệt ---
-  {
-    imageUrl:
-      "https://simg.zalopay.com.vn/zlp-website/assets/thumb_sach_dau_tu_tai_chinh_fa9058fbc6.jpg",
-    rawText:
-      "ĐẶC ĐIỂM 2: TƯ BẢN TÀI CHÍNH VÀ TÀI PHIỆT. Tư bản tài chính (Financial Capital): Là sự 'hợp nhất' giữa tư bản ngân hàng độc quyền và tư bản công nghiệp độc quyền. Tài phiệt (Financial Oligarchy): Một nhóm nhỏ các nhà tư bản kếch xù chi phối toàn bộ kinh tế, chính trị. Phương thức thống trị: 'Chế độ tham dự' (Mua cổ phiếu khống chế 'công ty mẹ' → mẹ chi phối con → con chi phối cháu...).",
-    title: "ĐẶC ĐIỂM 2: TƯ BẢN TÀI CHÍNH VÀ TÀI PHIỆT",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Tư bản tài chính (Financial Capital)">
-            Là sự "hợp nhất" giữa tư bản ngân hàng độc quyền và tư bản công
-            nghiệp độc quyền.
-          </ListItem>
-          <ListItem title="Tài phiệt (Financial Oligarchy)">
-            <ul>
-              <SubItem>
-                Một nhóm nhỏ các nhà tư bản kếch xù chi phối toàn bộ kinh tế,
-                chính trị.
-              </SubItem>
-              <SubItem>
-                <strong>Phương thức thống trị:</strong> "Chế độ tham dự" (Mua cổ
-                phiếu khống chế "công ty mẹ" → mẹ chi phối con → con chi phối
-                cháu...).
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 14: Đặc điểm 3: Xuất khẩu tư bản (XKTB) ---
-  {
-    imageUrl:
-      "https://image.vietstock.vn/2019/02/28/FDI-Viet-Nam.jpg",
-    rawText:
-      "ĐẶC ĐIỂM 3: XUẤT KHẨU TƯ BẢN (XKTB). Khái niệm: Là xuất khẩu giá trị (đầu tư) ra nước ngoài nhằm thu giá trị thặng dư. Hai hình thức XKTB: 1. Đầu tư trực tiếp (FDI): Xây dựng/mua lại xí nghiệp ở nước ngoài, trực tiếp kinh doanh. 2. Đầu tư gián tiếp: Cho vay thu lợi tức, mua cổ phần, cổ phiếu... (không trực tiếp tham gia quản lý).",
-    title: "ĐẶC ĐIỂM 3: XUẤT KHẨU TƯ BẢN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Khái niệm">
-            Là xuất khẩu giá trị (đầu tư) ra nước ngoài nhằm thu giá trị thặng dư.
-          </ListItem>
-          <ListItem title="Hai hình thức Xuất khẩu Tư bản">
-            <ul>
-              <SubItem>
-                <strong>1. Đầu tư trực tiếp (FDI):</strong> Xây dựng/mua lại xí
-                nghiệp ở nước ngoài, trực tiếp kinh doanh.
-              </SubItem>
-              <SubItem>
-                <strong>2. Đầu tư gián tiếp:</strong> Cho vay thu lợi tức, mua
-                cổ phần, cổ phiếu... (không trực tiếp tham gia quản lý).
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 15: Đặc điểm 4 & 5: Phân chia thế giới ---
-  {
-    imageUrl:
-      "https://img.oldthing.net/7580/25119302/0/n/AK-Das-Zentrum-Die-Sozialdemokratie-gegen-Weltpolitik-gegen-Kolonien-gegen-Heer-und-Flotte.jpg?t=1555070541",
-    rawText:
-      "ĐẶC ĐIỂM 4 & 5: PHÂN CHIA THẾ GIỚI. 4. Phân chia thị trường (Kinh tế): XKTB tăng → phân chia thế giới về kinh tế. 5. Phân chia lãnh thổ (Ảnh hưởng): Cạnh tranh nguyên liệu → đấu tranh chiếm thuộc địa. Đòi chia lại lãnh thổ → nguyên nhân chiến tranh. Hiện nay: Chủ nghĩa thực dân mới (dùng viện trợ kinh tế, kỹ thuật, quân sự).",
-    title: "ĐẶC ĐIỂM 4 & 5: PHÂN CHIA THẾ GIỚI",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="4. Phân chia thị trường (Kinh tế)">
-            Xuất khẩu tư bản tăng → phân chia thế giới về kinh tế.
-          </ListItem>
-          <ListItem title="5. Phân chia lãnh thổ (Ảnh hưởng)">
-            <ul>
-              <SubItem>Cạnh tranh nguyên liệu → đấu tranh chiếm thuộc địa.</SubItem>
-              <SubItem>
-                Đòi chia lại lãnh thổ → nguyên nhân chiến tranh.
-              </SubItem>
-              <SubItem>
-                <strong>Hiện nay:</strong> Chủ nghĩa thực dân mới (dùng viện trợ
-                kinh tế, kỹ thuật, quân sự).
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 16: Đặc trưng của ĐQNN ---
-  {
-    imageUrl:
-      "https://anticap.wordpress.com/files/2010/01/capitalist-greed.jpg",
-    rawText:
-      "ĐẶC TRƯNG KINH TẾ CỦA ĐỘC QUYỀN NHÀ NƯỚC. 1. Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước. 2. Sự hình thành, phát triển sở hữu nhà nước. 3. ĐQNN trở thành công cụ để nhà nước điều tiết nền kinh tế.",
-    title: "ĐẶC TRƯNG KINH TẾ CỦA ĐỘC QUYỀN NHÀ NƯỚC",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8">
-          <ListItem>Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước.</ListItem>
-          <ListItem>Sự hình thành, phát triển sở hữu nhà nước.</ListItem>
-          <ListItem>Độc quyền nhà nước trở thành công cụ để nhà nước điều tiết nền kinh tế.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 17: ĐQNN - Đặc trưng 1: Kết hợp nhân sự ---
-  {
-    imageUrl:
-      "https://cdnb.artstation.com/p/assets/images/images/052/407/947/large/bidyut-bikash-mohan-45-vl-20220805124558-01.jpg?1659706217",
-    rawText:
-      "ĐQNN (1): SỰ KẾT HỢP VỀ NHÂN SỰ. V.I.Lênin: 'Hôm nay là bộ trưởng, ngày mai là chủ ngân hàng...'. Cơ chế: Thông qua các đảng phái và các Hội chủ xí nghiệp độc quyền. Hội chủ này là 'chính phủ đằng sau chính phủ'. Hình thức (Sự thâm nhập lẫn nhau): Đại biểu của độc quyền tham gia vào bộ máy nhà nước. Quan chức nhà nước được 'cài cắm' vào ban quản trị của tổ chức độc quyền.",
-    title: "ĐỘC QUYỀN NHÀ NƯỚC (1): SỰ KẾT HỢP VỀ NHÂN SỰ",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="V.I.Lênin">
-             "Hôm nay là bộ trưởng, ngày mai là chủ ngân hàng; hôm nay là chủ ngân hàng, ngày mai là bộ trưởng".
-          </ListItem>
-          <ListItem title="Cơ chế">
-            <ul>
-              <SubItem>
-                Thông qua các đảng phái và các{" "}
-                <strong>Hội chủ xí nghiệp độc quyền</strong>.
-              </SubItem>
-              <SubItem>
-                Hội chủ này là "chính phủ đằng sau chính phủ".
-              </SubItem>
-            </ul>
-          </ListItem>
-          <ListItem title="Hình thức (Sự thâm nhập lẫn nhau)">
-            <ul>
-              <SubItem>
-                Đại biểu của độc quyền tham gia vào bộ máy nhà nước.
-              </SubItem>
-              <SubItem>
-                Quan chức nhà nước được "cài cắm" vào ban quản trị của tổ
-                chức độc quyền.
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 18: ĐQNN - Đặc trưng 2: Sở hữu nhà nước ---
-  {
-    imageUrl:
-      "https://static.hieuluat.vn/uploaded/Images/Original/2023/01/03/Quyen-tham-gia-quan-ly-Nha-nuoc-xa-hoi_0301145614.jpg",
-    rawText:
-      "ĐỘC QUYỀN NHÀ NƯỚC (2): SỞ HỮU NHÀ NƯỚC. Bản chất: Là sở hữu tập thể của giai cấp tư sản, phục vụ lợi ích của tư bản độc quyền. Vai trò: Mở rộng sản xuất cho ĐQ; Giúp ĐQ di chuyển vốn; Làm chỗ dựa cho sự điều tiết kinh tế. Thị trường nhà nước: Nhà nước trở thành khách hàng 'bao mua' sản phẩm (đặc biệt là đơn hàng quân sự), đảm bảo lợi nhuận cao và ổn định cho ĐQ.",
-    title: "ĐỘC QUYỀN NHÀ NƯỚC (2): SỞ HỮU NHÀ NƯỚC",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Bản chất"> Là sở hữu tập thể của giai cấp tư sản, phục vụ lợi ích của tư bản độc quyền.</ListItem>
-          <ListItem title="Vai trò"> Mở rộng sản xuất cho độc quyền; Giúp độc quyền di chuyển vốn; Làm chỗ dựa cho sự điều tiết kinh tế.</ListItem>
-          <ListItem title="Thị trường nhà nước"> Nhà nước trở thành khách hàng "bao mua" sản phẩm (đặc biệt là đơn hàng quân sự), đảm bảo lợi nhuận cao và ổn định cho độc quyền.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 19: ĐQNN - Đặc trưng 3: Điều tiết kinh tế ---
-  {
-    imageUrl:
-      "https://fileportalcms.mpi.gov.vn/Tinbai/NoiDung/2019/10/15/44297/3.jpg",
-    rawText:
-      "ĐQNN (3): NHÀ NƯỚC ĐIỀU TIẾT NỀN KINH TẾ. Công cụ điều tiết: Ngân sách, thuế; Hệ thống tiền tệ, tín dụng; Doanh nghiệp nhà nước; Kế hoạch hóa... Cơ chế điều tiết: Là sự dung hợp của 3 cơ chế: Thị trường, Độc quyền tư nhân, và Điều tiết của nhà nước. Mục đích: Phục vụ lợi ích của chủ nghĩa tư bản độc quyền.",
-    title: "ĐỘC QUYỀN NHÀ NƯỚC (3): NHÀ NƯỚC ĐIỀU TIẾT KINH TẾ",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Công cụ điều tiết"> Ngân sách, thuế; Hệ thống tiền tệ, tín dụng; Doanh nghiệp nhà nước; Kế hoạch hóa...</ListItem>
-          <ListItem title="Cơ chế điều tiết"> Là sự <strong>dung hợp</strong> của 3 cơ chế: Thị trường, Độc quyền tư nhân, và Điều tiết của nhà nước.</ListItem>
-          <ListItem title="Mục đích"> Phục vụ lợi ích của chủ nghĩa tư bản độc quyền.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 20: BHM 1: Tích tụ & Tập trung ---
-  {
-    imageUrl:
-      "https://hrchannels.com/uptalent/attachments/images/20230426/104233019_cong-ty-da-quoc-gia-8.jpg",
-    rawText:
-      "BIỂU HIỆN MỚI (BHM) 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN. Hình thức tổ chức mới (Công ty xuyên quốc gia): Concern (Consơn): Độc quyền đa ngành, (Để đối phó luật chống độc quyền). Conglomerate (Công-gơ-lô-mê-rết): Kết hợp các hãng không liên quan. (Mục đích: thu lợi từ chứng khoán). Vai trò của doanh nghiệp vừa và nhỏ (SMEs): Vẫn tồn tại và quan trọng. (Phụ thuộc vào Concern; Có thế mạnh riêng).",
-    title: "BIỂU HIỆN MỚI 1: TÍCH TỤ & TẬP TRUNG TƯ BẢN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Hình thức tổ chức mới (Công ty xuyên quốc gia)">
-            <ul>
-              <SubItem>
-                <strong>Concern:</strong> Độc quyền <strong>đa ngành</strong>. (Để
-                đối phó luật chống độc quyền).
-              </SubItem>
-              <SubItem>
-                <strong>Conglomerate:</strong> Kết hợp các hãng{" "}
-                <strong>không liên quan</strong>. (Mục đích: thu lợi từ chứng khoán).
-              </SubItem>
-            </ul>
-          </ListItem>
-          <ListItem title="Vai trò của doanh nghiệp vừa và nhỏ (SMEs)">
-            <ul>
-              <SubItem>Vẫn tồn tại và quan trọng.</SubItem>
-              <SubItem>
-                (Lý do: Phụ thuộc vào Concern; Có thế mạnh riêng).
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
-
-  // --- Slide 21: BHM 2: Tư bản tài chính ---
+  // Slide 1
   {
-    imageUrl:
-      "https://s3-ap-southeast-1.amazonaws.com/images.spiderum.com/sp-images/49412bf00eda11ecbfa285ca4b16aa04.jpeg",
-    rawText:
-      "BHM 2: VAI TRÒ CỦA TƯ BẢN TÀI CHÍNH. Mở rộng phạm vi: Liên kết được mở rộng ra nhiều ngành, tạo thành các tổ hợp đa dạng (công - nông - thương - tín - dịch vụ). Thay đổi cơ chế khống chế: 'Chế độ tham dự' được bổ sung thêm 'chế độ uỷ nhiệm'. Quốc tế hóa: Thành lập các ngân hàng đa quốc gia; ra đời các trung tâm tài chính thế giới.",
-    title: "BIỂU HIỆN MỚI 2: VAI TRÒ CỦA TƯ BẢN TÀI CHÍNH",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Mở rộng phạm vi"> Liên kết được mở rộng ra nhiều ngành, tạo thành các tổ hợp đa dạng (công - nông - thương - tín - dịch vụ).</ListItem>
-          <ListItem title="Thay đổi cơ chế khống chế"> "Chế độ tham dự" được bổ sung thêm <strong>"chế độ uỷ nhiệm"</strong>.</ListItem>
-          <ListItem title="Quốc tế hóa"> Thành lập các ngân hàng đa quốc gia; ra đời các trung tâm tài chính thế giới.</ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+    imageUrl: "https://baoquangbinh.vn/dataimages/201609/original/images597962_anhbia.jpg",
+    title: "CHƯƠNG 5: TƯ TƯỞNG HỒ CHÍ MINH VỀ ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC VÀ ĐOÀN KẾT QUỐC TẾ",
+    details: (
+      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center">
+        <p className="text-xl font-semibold mb-4">Các nội dung chính:</p>
+        <ul className="text-left space-y-3 inline-block text-lg">
+            <li>3. Điều kiện để xây dựng khối đại đoàn kết toàn dân tộc</li>
+            <li>4. Hình thức, nguyên tắc tổ chức của khối đại đoàn kết toàn dân tộc - Mặt trận dân tộc thống nhất</li>
+            <li>5. Phương thức xây dựng khối đại đoàn kết dân tộc</li>
+        </ul>
+      </motion.div>
+    ),
+  },
 
-  // --- Slide 22: BHM 3: Xuất khẩu tư bản (XKTB) ---
-  {
-    imageUrl:
-      "https://res.cloudinary.com/dlk3w4aer/image/upload/v1761874374/phat-trien-thi-truong-xuat-khau-1200x674_f1813_ghpma6.jpg",
-    rawText:
-      "BHM 3: XUẤT KHẨU TƯ BẢN (XKTB). 1. Thay đổi về hướng: Trước: Nước phát triển → Nước kém phát triển. Nay: Dòng vốn chảy qua lại giữa các nước phát triển với nhau. 2. Thay đổi về chủ thể: Vai trò của Công ty xuyên quốc gia (TNCs) ngày càng to lớn. 3. Thay đổi về hình thức: Xuất hiện hình thức mới như BOT, BT. 4. Thay đổi về nguyên tắc: Nguyên tắc cùng có lợi được đề cao.",
-    title: "BIỂU HIỆN MỚI 3: XUẤT KHẨU TƯ BẢN",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-3 list-decimal list-outside pl-8 text-xl">
-          <ListItem>
-             Thay đổi về hướng: Dòng vốn chảy qua lại giữa các nước phát triển.
-          </ListItem>
-          <ListItem>
-             Thay đổi về chủ thể: Vai trò của Công ty xuyên quốc gia (TNCs) tăng.
-          </ListItem>
-          <ListItem>
-             Thay đổi về hình thức: Xuất hiện BOT, BT...
-          </ListItem>
-          <ListItem>
-             Thay đổi về nguyên tắc: Nguyên tắc cùng có lợi được đề cao.
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 2
+  {
+    imageUrl: "https://images.hcmcpv.org.vn/res/news/2021/11/18-11-2021-mat-tran-dan-toc-thong-nhat-bieu-tuong-cua-khoi-dai-doan-ket-toan-dan-D02C716E.jpg",
+    caption: "Đại hội toàn quốc thống nhất Mặt trận Việt Minh - Liên Việt thành Mặt trận Liên hiệp quốc dân Việt Nam, tại Tuyên Quang, ngày 3/3/1951.",
+    title: "3. ĐIỀU KIỆN ĐỂ XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC",
+    details: (
+      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
+        <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
+          "Đại đoàn kết tức là trước hết phải đoàn kết đại đa số nhân dân, mà đại đa số nhân dân ta là công nhân, nông dân và các tầng lớp nhân dân lao động khác."
+        </p>
+        <div className="w-24 h-1 bg-yellow-600 dark:bg-yellow-500 rounded-full mb-6"></div>
+        <p className="text-lg opacity-90">
+          Để thực hiện được đại đoàn kết, Hồ Chí Minh chỉ ra cần phải đảm bảo các điều kiện tiên quyết sau đây:
+        </p>
+      </motion.div>
+    ),
+  },
 
-  // --- Slide 23: BHM 4 & 5: Phân chia thị trường & Lãnh thổ ---
-  {
-    imageUrl:
-      "https://api.toploigiai.vn/storage/uploads/ly-thuyet-su-8-bai-13-chien-tranh-the-gioi-thu-nhat-1914-1918_1.jpg",
-    rawText:
-      "BHM 4 & 5: PHÂN CHIA THỊ TRƯỜNG & LÃNH THỔ. Phân chia thị trường (Kinh tế): Bị tác động bởi 2 xu hướng: Toàn cầu hóa (do TNCs) và Khu vực hóa (EU, NAFTA, OPEC...). Phân chia lãnh thổ (Ảnh hưởng): Hình thức mới: 'Chiến lược biên giới mềm', bành trướng 'biên giới kinh tế'. Thay thế chiến tranh thế giới bằng chiến tranh thương mại, sắc tộc...",
-    title: "BIỂU HIỆN MỚI 4 & 5: PHÂN CHIA THỊ TRƯỜNG & LÃNH THỔ",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Phân chia thị trường (Kinh tế)">
-            Bị tác động bởi 2 xu hướng: Toàn cầu hóa (do TNCs)
-            và Khu vực hóa (EU, NAFTA, OPEC...).
-          </ListItem>
-          <ListItem title="Phân chia lãnh thổ (Ảnh hưởng)">
-            <ul>
-              <SubItem>
-                Hình thức mới: "Chiến lược biên giới mềm", bành trướng "biên giới kinh tế".
-              </SubItem>
-              <SubItem>
-                Thay thế chiến tranh thế giới bằng chiến tranh thương mại, sắc tộc...
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 3
+  {
+    imageUrl: "http://tuyengiao.hagiang.gov.vn/upload/64711/fck/files/image-20180904082009-1.jpeg",
+    rawText: "3. Điều kiện để xây dựng khối đại đoàn kết toàn dân tộc. Một là, phải lấy lợi ích chung làm điểm quy tụ, đồng thời tôn trọng các lợi ích khác biệt chính đáng.",
+    title: "MỘT LÀ, PHẢI LẤY LỢI ÍCH CHUNG LÀM ĐIỂM QUY TỤ, ĐỒNG THỜI TÔN TRỌNG CÁC LỢI ÍCH KHÁC BIỆT CHÍNH ĐÁNG",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Xử lý mối quan hệ lợi ích">
+           Trong xã hội luôn tồn tại nhiều lợi ích khác nhau, cần tìm ra điểm tương đồng, lợi ích chung để đoàn kết lực lượng.
+        </ListItem>
+        <ListItem title="Mục đích chung">
+           Đoàn kết lực lượng để thực hiện mục đích chung của Mặt trận: Vì nước, vì dân.
+        </ListItem>
+        <ListItem title="Nguyên tắc bất di bất dịch">
+           Phải lấy lợi ích tối cao của dân tộc làm mục tiêu phấn đấu.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
 
-  // --- Slide 24: BHM của ĐQNN (P.1) ---
-  {
-    imageUrl:
-      "https://hocluat.vn/wp-content/uploads/2020/01/nha-nuoc-chu-no.jpg",
-    rawText:
-      "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.1). 1. Về quan hệ nhân sự: Thể chế Đa nguyên phổ biến; xuất hiện cơ chế thỏa hiệp. 2. Về sở hữu nhà nước (Vai trò Nhà nước): Nhà nước tăng đầu tư vào R&D, kết cấu hạ tầng (gánh chịu rủi ro). Là nhân tố quyết định ổn định kinh tế vĩ mô. Vai trò 'giải cứu': Dùng ngân sách cứu các tập đoàn lớn (Vd: Citigroup, AIG 2008).",
-    title: "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.1)",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="1. Về quan hệ nhân sự"> Thể chế <strong>Đa nguyên</strong> phổ biến; xuất hiện cơ chế <strong>thỏa hiệp</strong>.</ListItem>
-          <ListItem title="2. Về sở hữu nhà nước (Vai trò Nhà nước)">
-            <ul>
-              <SubItem>
-                Nhà nước tăng đầu tư vào R&D, kết cấu hạ tầng (gánh chịu rủi ro).
-              </SubItem>
-              <SubItem>
-                Là nhân tố quyết định <strong>ổn định kinh tế vĩ mô</strong>.
-              </SubItem>
-              <SubItem>
-                <strong>Vai trò "giải cứu":</strong> Dùng ngân sách cứu các tập
-                đoàn lớn (VD: Citigroup, AIG 2008).
-              </SubItem>
-          </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 4
+  {
+    imageUrl: "https://cdn.noron.vn/2022/08/03/img20201113091945-1659491642.jpg",
+    rawText: "Hai là, phải kế thừa truyền thống yêu nước, nhân nghĩa, đoàn kết của dân tộc.",
+    title: "HAI LÀ, PHẢI KẾ THỪA TRUYỀN THỐNG YÊU NƯỚC, NHÂN NGHĨA, ĐOÀN KẾT CỦA DÂN TỘC",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Nguồn gốc lịch sử">
+           Được hình thành, củng cố và phát triển trong suốt quá trình dựng nước và giữ nước hàng ngàn năm của dân tộc.
+        </ListItem>
+        <ListItem title="Giá trị bền vững">
+           Truyền thống yêu nước, nhân nghĩa đã thấm sâu vào tư tưởng mỗi con người Việt Nam và lưu truyền qua nhiều thế hệ.
+        </ListItem>
+        <ListItem title="Cội nguồn sức mạnh">
+           Là cội nguồn sức mạnh vô địch để cả dân tộc chiến đấu và chiến thắng thiên tai địch họa.
+        </ListItem>
+        <ListItem title="Bảo vệ bản sắc">
+           Làm cho đất nước được trường tồn, bản sắc dân tộc được giữ vững.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
 
-  // --- Slide 25: BHM của ĐQNN (P.2) ---
-  {
-    imageUrl:
-      "https://cdn2.tuoitre.vn/thumb_w/1200/2020/1/9/thu-tuong-chung-kien-le-ky-cong-ham-1-1578577645983761692652-crop-15785778422881917397433.jpg",
-    rawText:
-      "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.2). 3. Về vai trò điều tiết kinh tế: Điều tiết chính trị: Dùng 'Đa nguyên tư sản' để làm dịu đấu tranh. Điều tiết kinh tế (Viện trợ ODA): Trở thành công cụ điều tiết kinh tế TRONG NƯỚC. (Đẩy hàng tồn kho, công nghệ lỗi thời). Nước nhận viện trợ chủ yếu nhận hàng hóa, chuyên gia của nước cung cấp.",
-    title: "BIỂU HIỆN MỚI CỦA ĐỘC QUYỀN NHÀ NƯỚC (P.2)",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="3. Về vai trò điều tiết kinh tế">
-            <ul>
-              <SubItem>
-                <strong>Điều tiết chính trị:</strong> Dùng "Đa nguyên tư sản" để làm dịu đấu tranh.
-              </SubItem>
-              <SubItem>
-                <strong>Điều tiết kinh tế (Viện trợ ODA):</strong> Trở thành công
-                cụ điều tiết kinh tế <strong>TRONG NƯỚC</strong>.
-              </SubItem>
-              <SubItem>
-                (Mục đích: Đẩy hàng tồn kho, công nghệ lỗi thời).
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 5
+  {
+    imageUrl: "https://f.hoatieu.vn/data/image/2021/10/14/bieu-hien-cua-long-yeu-thuong-con-nguoi-so-1.jpg",
+    rawText: "Ba là, phải có lòng khoan dung, độ lượng với con người.",
+    title: "BA LÀ, PHẢI CÓ LÒNG KHOAN DUNG, ĐỘ LƯỢNG VỚI CON NGƯỜI",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Vì lợi ích cách mạng">
+           Phải có lòng khoan dung độ lượng, chấp nhận những điểm khác biệt nhỏ.
+        </ListItem>
+        <ListItem title="Cách nhìn nhận con người">
+           Cần trân trọng phần thiện dù là nhỏ nhất ở mỗi người để cảm hóa và quy tụ họ.
+        </ListItem>
+        <ListItem title="Mục đích">
+           Tập hợp, quy tụ rộng rãi mọi lực lượng vào khối đại đoàn kết.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
 
-  // --- SLIDE 26: CÂU HỎI LIÊN HỆ ---
-{
-    imageUrl:
-      "https://i1-ngoisao.vnecdn.net/2022/08/12/3-2797-1660275082.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=thE_5ekqk4knaxCzDzO6oA",
-    rawText:
-      "LIÊN HỆ THỰC TẾ: ÂN XÁ TÀI PHIỆT HÀN QUỐC 2022. Câu hỏi: Tại sao Chính phủ Hàn Quốc ân xá cho 'thái tử' Samsung và các tài phiệt khác vào 8/2022? Lý do chính: Tầm quan trọng kinh tế của Chaebol (Tài phiệt): Các tập đoàn như Samsung đóng góp lớn vào GDP, xuất khẩu, việc làm. Chính phủ tin rằng việc ân xá sẽ giúp các lãnh đạo này điều hành, đầu tư mạnh mẽ hơn, vực dậy kinh tế sau khủng hoảng. Mối quan hệ Nhà nước - Độc quyền: Hành động này thể hiện mối liên kết chặt chẽ, nơi lợi ích kinh tế quốc gia (gắn với các tập đoàn lớn) có thể được ưu tiên. Gây tranh cãi: Quyết định này gây tranh cãi, đặt ra câu hỏi về sự công bằng pháp luật và ảnh hưởng của giới tài phiệt.",
-    title: "LIÊN HỆ: ÂN XÁ TÀI PHIỆT HÀN QUỐC 2022",
-    details: (
-      <>
-        <motion.p variants={contentChildVariants} className="text-xl text-yellow-700 dark:text-yellow-300 bg-yellow-100 dark:bg-gray-700 p-4 rounded-lg mb-6 shadow-inner">
-          <strong>Câu hỏi:</strong> Tại sao Chính phủ Hàn Quốc ân xá cho "thái tử"
-          Samsung và các tài phiệt khác vào 8/2022, với một lí do mong muốn họ đóng góp vượt qua khủng hoảng kinh tế quốc gia?
-        </motion.p>
-        <motion.ul variants={contentChildVariants} className="space-y-4">
-          <ListItem title="Tầm quan trọng kinh tế của Chaebol(Tài phiệt)">
-            <ul>
-              <SubItem>
-                Các tập đoàn như Samsung đóng góp rất lớn vào GDP, xuất khẩu,
-                việc làm của Hàn Quốc.
-               </SubItem>
-              <SubItem>
-                Chính phủ tin rằng việc ân xá sẽ giúp các lãnh đạo này quay
-                lại điều hành, đưa ra các quyết định đầu tư táo bạo, góp phần
-                vực dậy kinh tế trong bối cảnh khó khăn (lạm phát, hậu
-                COVID...).
-            </SubItem>
-            </ul>
-          </ListItem>
-          <ListItem title="Mối quan hệ Nhà nước - Độc quyền">
-            <ul>
-              <SubItem>
-                Hành động này phản ánh mối liên kết chặt chẽ giữa nhà nước và
-                các tập đoàn kinh tế lớn (tương tự khái niệm độc quyền nhà
-                nước).
-              </SubItem>
-              <SubItem>
-                Lợi ích kinh tế quốc gia (được cho là gắn liền với sự phát
-                triển của các chaebol) có thể được ưu tiên hơn các vấn đề
-                pháp lý.
-              </SubItem>
-         </ul>
-          </ListItem>
-          <ListItem title="Gây tranh cãi">
-            <ul>
-              <SubItem>
-                Quyết định này vấp phải sự phản đối, đặt ra câu hỏi về sự
-              công bằng ("luật pháp chỉ dành cho người nghèo?") và tầm ảnh
-                hưởng quá lớn của giới tài phiệt lên chính trị.
-              </SubItem>
-            </ul>
-          </ListItem>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 6
+  {
+    imageUrl: "https://baotanghochiminh.vn/pic/Customer/images/73.jpg",
+    rawText: "Bốn là, phải có niềm tin vào nhân dân.",
+    title: "BỐN LÀ, PHẢI CÓ NIỀM TIN VÀO NHÂN DÂN",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Nguyên tắc tối cao theo Bác">
+           Yêu dân, tin dân, dựa vào dân, sống và phấn đấu vì hạnh phúc của nhân dân.
+        </ListItem>
+        <ListItem title="Tiếp nối truyền thống">
+           Kế thừa tư tưởng "Nước lấy dân làm gốc", "Chở thuyền và lật thuyền cũng là dân".
+        </ListItem>
+        <ListItem title="Nguyên lý Mác-xít">
+           Quán triệt sâu sắc nguyên lý: "Cách mạng là sự nghiệp của quần chúng".
+        </ListItem>
+        <ListItem title="Vị trí của Nhân dân">
+           <ul>
+              <SubItem>Là chỗ dựa vững chắc.</SubItem>
+              <SubItem>Là nguồn sức mạnh vô địch của khối đại đoàn kết dân tộc.</SubItem>
+           </ul>
+        </ListItem>
+        <ListItem title="Ý nghĩa sống còn">
+           Nhân dân là nhân tố quyết định thắng lợi của cách mạng.
+        </ListItem>
+        <ListItem title="Kết luận">
+           Muốn thực hiện đại đoàn kết toàn dân tộc, dứt khoát phải có niềm tin vào nhân dân.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
 
-   // --- SLIDE 27: REFERENCES ---
-  {
-    imageUrl: "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/giao_trinh_kinh_te_chinh_tri_mac___lenin_danh_cho_bac_dai_hoc_he_chuyen_ly_luan_chinh_tri/2022_11_18_11_38_47_1-390x510.jpg",
-    rawText: "Tài liệu tham khảo. Giáo trình Kinh tế chính trị Mác - Lênin. Các bài báo và tài liệu liên quan.",
-    title: "TÀI LIỆU THAM KHẢO",
-    details: (
-      <>
-        <motion.ul variants={contentChildVariants} className="space-y-4 list-disc list-outside pl-6">
-          <motion.li variants={contentChildVariants}>
-            Giáo trình Kinh tế chính trị Mác - Lênin (Dành cho hệ đào tạo đại học không chuyên lý luận chính trị) - NXB Chính trị quốc gia sự thật.
-        </motion.li>
-          <motion.li variants={contentChildVariants}>
-            Các bài báo, tài liệu, hình ảnh minh họa từ Internet.
-          </motion.li>
-        </motion.ul>
-      </>
-    ),
-  },
+  // Slide 7
+  {
+    imageUrl: "https://file3.qdnd.vn/data/images/0/2022/11/10/thutrang_la/mat-tran-to-quoc-1983.jpg?dpi=150&quality=100&w=870",
+    title: "4. HÌNH THỨC, NGUYÊN TẮC TỔ CHỨC CỦA KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC - MẶT TRẬN DÂN TỘC THỐNG NHẤT",
+    caption: "Đại hội đại biểu toàn quốc Mặt trận Tổ quốc Việt Nam lần thứ II được tổ chức tại Hà Nội từ ngày 12 đến ngày 14-5-1983.",
+    details: (
+      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
+        <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
+          "Chính sách Mặt trận là một chính sách rất quan trọng. Công tác Mặt trận là một công tác rất quan trọng trong toàn bộ công tác cách mạng."
+        </p>
+        <div className="w-24 h-1 bg-yellow-600 dark:bg-yellow-500 rounded-full mb-6"></div>
+        <p className="text-lg opacity-90">
+          Tìm hiểu về hình thức tổ chức duy nhất (Mặt trận Dân tộc Thống nhất) và các nguyên tắc vàng để xây dựng và vận hành khối đại đoàn kết.
+        </p>
+      </motion.div>
+    ),
+  },
+
+  // Slide 8
+  {
+    imageUrl: "https://vnanet.vn/Data/Articles/2020/11/12/5127161/vna_potal_ky_niem_90_nam_ngay_thanh_lap_mat_tran_dan_toc_thong_nhat_viet_nam_-_ngay_truyen_thong_mat_tran_to_quoc_viet_nam_18111930_%E2%80%93_18112020___stand.jpg",
+    rawText: "4. Hình thức tổ chức: Mặt trận dân tộc thống nhất. Là nơi quy tụ mọi tổ chức và cá nhân yêu nước.",
+    caption: "Chủ tịch Hồ Chí Minh tại Đại hội thành lập Mặt trận Tổ quốc Việt Nam, tổ chức tại Hà Nội, tháng 9/1955.",
+    title: "I/ MẶT TRẬN DÂN TỘC THỐNG NHẤT",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Bản chất">
+           Là nơi quy tụ mọi tổ chức và cá nhân yêu nước, tập hợp người dân Việt Nam cả trong và ngoài nước.
+        </ListItem>
+        <ListItem title="Tư tưởng Hồ Chí Minh">
+           Chú trọng tập hợp quần chúng vào các tổ chức ái hữu, tương trợ... nhưng bao trùm là Mặt trận dân tộc thống nhất.
+        </ListItem>
+        <ListItem title="Sự đa dạng về tên gọi">
+           Tùy từng thời kỳ cách mạng mà Mặt trận có tên gọi khác nhau (Mặt trận Việt Minh, Mặt trận Liên Việt...).
+        </ListItem>
+        <ListItem title="Mục tiêu chung nhất">
+           Phấn đấu vì độc lập, thống nhất của Tổ quốc và tự do, hạnh phúc của nhân dân.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 9
+  {
+    imageUrl: "https://tttctt.1cdn.vn/thumbs/1200x630/2023/08/18/anh-2-9-.jpg",
+    title: "II/ NGUYÊN TẮC XÂY DỰNG VÀ HOẠT ĐỘNG CỦA MẶT TRẬN DÂN TỘC THỐNG NHẤT",
+    caption: "Kỳ họp thứ nhất của Quốc hội khóa I thể hiện sự đại đoàn kết toàn dân tộc để phục vụ nhiệm vụ kháng chiến kiến quốc.",
+    details: (
+      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
+        <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
+          "Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công."
+        </p>
+        <div className="w-24 h-1 bg-yellow-600 dark:bg-yellow-500 rounded-full mb-6"></div>
+        <p className="text-lg opacity-90 font-museum-body">
+          Để Mặt trận thực sự trở thành nơi quy tụ sức mạnh toàn dân tộc, Hồ Chí Minh đã đề ra 3 nguyên tắc hoạt động cốt lõi không thể tách rời.
+        </p>
+      </motion.div>
+    ),
+  },
+
+  // Slide 10
+  {
+    imageUrl: "https://www.tapchicongsan.org.vn/image/journal/article?img_id=152099845&t=1637916050670",
+    rawText: "Nguyên tắc 1: Xây dựng trên nền tảng liên minh công - nông - trí thức và đặt dưới sự lãnh đạo của Đảng.",
+    title: "MỘT LÀ, PHẢI ĐƯỢC XÂY DỰNG TRÊN NỀN TẢNG LIÊN MINH CÔNG - NÔNG - TRÍ THỨC VÀ ĐẶT DƯỚI SỰ LÃNH ĐẠO CỦA ĐẢNG",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Nền tảng bắt buộc">
+           <ul>
+              <SubItem>Liên minh Công nhân – Nông dân – Trí thức.</SubItem>
+              <SubItem>Đặt dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.</SubItem>
+           </ul>
+        </ListItem>
+        <ListItem title="Tại sao Công-Nông là nòng cốt?">
+           Vì họ là lực lượng sản xuất trực tiếp, đông đảo nhất, bị áp bức nặng nề nhất và có chí khí cách mạng bền bỉ.
+        </ListItem>
+        <ListItem title="Sự mở rộng">
+           Hồ Chí Minh nhấn mạnh cần mở rộng liên minh với các giai cấp, tầng lớp khác, đặc biệt là trí thức.
+        </ListItem>
+        <ListItem title="Đặc điểm vai trò lãnh đạo của Đảng">
+           <ul>
+              <SubItem>Đảng không có lợi ích riêng, lợi ích của Đảng gắn liền với lợi ích dân tộc.</SubItem>
+              <SubItem>Lãnh đạo bằng việc nắm bắt quy luật lịch sử, đề ra đường lối đúng đắn.</SubItem>
+           </ul>
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 11
+  {
+    imageUrl: "https://btnmt.1cdn.vn/2022/05/19/t2(1).jpg",
+    rawText: "Nguyên tắc 2: Hoạt động theo nguyên tắc hiệp thương dân chủ. Mọi vấn đề phải được thảo luận công khai.",
+    caption: "Chủ tịch Hồ Chí Minh đọc diễn văn khai mạc Đại hội đại biểu toàn quốc lần thứ III.",
+    title: "HAI LÀ, PHẢI HOẠT ĐỘNG THEO NGUYÊN TẮC HIỆP THƯƠNG DÂN CHỦ",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Lý do cần hiệp thương">
+           Mặt trận gồm nhiều giai cấp, tầng lớp, đảng phái, tôn giáo với lợi ích khác nhau nên phải dùng hiệp thương dân chủ.
+        </ListItem>
+        <ListItem title="Cách thức thực hiện">
+           Mọi vấn đề phải được thảo luận công khai, các thành viên cùng bàn bạc để đi đến nhất trí, tránh áp đặt.
+        </ListItem>
+        <ListItem title="Xử lý lợi ích">
+           Tôn trọng lợi ích riêng chính đáng nếu phù hợp với lợi ích chung; điều chỉnh dần những lợi ích chưa phù hợp.
+        </ListItem>
+        <ListItem title="Giá trị của Hiệp thương">
+           Giúp quy tụ nhiều lực lượng xã hội, tạo sự đồng thuận để xây dựng khối đại đoàn kết dân tộc vững chắc.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 12
+  {
+    imageUrl: "https://media-cdn-v2.laodong.vn/storage/newsportal/2023/5/7/1189327/Chien-Dich-Dien-Bien.jpg",
+    rawText: "Nguyên tắc 3: Đoàn kết lâu dài, chặt chẽ, thật sự. Phương châm 'Cầu đồng tồn dị'.",
+    title: "BA LÀ, PHẢI ĐOÀN KẾT LÂU DÀI, CHẶT CHẼ, ĐOÀN KẾT THẬT SỰ, CHÂN THÀNH, THÂN ÁI GIÚP ĐỠ NHAU CÙNG TIẾN BỘ",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Yêu cầu đoàn kết">
+           Phải đoàn kết lâu dài, chặt chẽ, đoàn kết thật sự, chân thành, thân ái giúp đỡ nhau cùng tiến bộ.
+        </ListItem>
+        <ListItem title="Phương châm 'Cầu đồng tồn dị'">
+           Hồ Chí Minh nhấn mạnh việc lấy cái chung (Độc lập, Tự do) để hạn chế cái riêng, cái khác biệt.
+        </ListItem>
+        <ListItem title="Phương châm về sự đoàn kết">
+           Tiền đề để mở rộng khối đại đoàn kết trong mặt trận dân tộc thống nhất.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 13
+  {
+    imageUrl: "https://kienthucplus.vn/wp-content/uploads/2023/04/bac-ho-chuyen-tham-quang-binh-vinh-linh.jpg ",
+    title: "5. PHƯƠNG THỨC XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT DÂN TỘC",
+    details: (
+      <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
+        <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
+          "Dễ trăm lần không dân cũng chịu,<br/>Khó vạn lần dân liệu cũng xong."
+        </p>
+        <div className="w-24 h-1 bg-yellow-600 dark:bg-yellow-500 rounded-full mb-6"></div>
+        <p className="text-lg opacity-90 font-museum-body">
+          Để biến tư tưởng đại đoàn kết thành sức mạnh vật chất, Hồ Chí Minh chỉ ra hai phương thức then chốt: Dân vận và Tổ chức.
+        </p>
+      </motion.div>
+    ),
+  },
+
+  // Slide 14
+  {
+    imageUrl: "https://hatinh.gov.vn/uploads/topics/16029766295536.jpeg",
+    rawText: "5. Phương thức xây dựng. Một là, làm tốt công tác vận động quần chúng. Đây là nhiệm vụ hàng đầu.",
+    title: "MỘT LÀ, LÀM TỐT CÔNG TÁC VẬN ĐỘNG QUẦN CHÚNG",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Tầm quan trọng">
+           Hồ Chí Minh coi đại đoàn kết là nhiệm vụ hàng đầu của Đảng, do đó phải làm tốt công tác dân vận.
+        </ListItem>
+        <ListItem title="Trách nhiệm">
+           Đảng, Nhà nước và cán bộ phải: Giáo dục – Tuyên truyền – Hướng dẫn – Giúp đỡ – Vận động nhân dân.
+        </ListItem>
+        <ListItem title="Mục tiêu dân vận">
+           Giúp nhân dân hiểu rõ quyền, lợi ích, trách nhiệm để họ tự giác, chủ động tham gia cách mạng.
+        </ListItem>
+        <ListItem title="Lời Bác dặn">
+           "Cần phải chịu khó tìm đủ cách giải thích cho họ hiểu rằng: những việc đó là vì ích lợi của họ mà phải làm".
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 15
+  {
+    imageUrl: "https://baocantho.com.vn/image/fckeditor/upload/2018/20180727/images/Bac-Ho.jpg",
+    rawText: "Hai là, thành lập đoàn thể, tổ chức quần chúng phù hợp. Chiến lược: Đoàn kết, đoàn kết, đại đoàn kết...",
+    title: "HAI LÀ, THÀNH LẬP ĐOÀN THỂ, TỔ CHỨC QUẦN CHÚNG PHÙ HỢP VỚI TỪNG ĐỐI TƯỢNG ĐỂ TẬP HỢP QUẦN CHÚNG",
+    caption: "Chủ tịch Hồ Chí Minh đến thăm và huấn thị cho cán bộ, chiến sĩ Công an nhân dân vũ trang bảo vệ Thủ đô Hà Nội, ngày 14-02-1961.",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-4">
+        <ListItem title="Sợi dây kết nối">
+           Các đoàn thể, tổ chức quần chúng là sợi dây gắn kết Đảng với nhân dân.
+        </ListItem>
+        <ListItem title="Bản chất">
+           Các tổ chức này là của dân, có vai trò vận động quần chúng tham gia vào tổ chức.
+        </ListItem>
+        <ListItem title="Chiến lược thành công">
+           <span className="italic text-yellow-600 font-semibold">"Đoàn kết, đoàn kết, đại đoàn kết - Thành công, thành công, đại thành công"</span>.
+        </ListItem>
+      </motion.ul>
+    ),
+  },
+
+  // Slide 16
+  {
+    imageUrl: "https://salt.tikicdn.com/cache/w1200/ts/product/15/10/d2/5e7e4a36695c21a21e5cdc7bf3429abe.jpg",
+    title: "TÀI LIỆU THAM KHẢO",
+    details: (
+      <motion.ul variants={contentChildVariants} className="space-y-6">
+        <ListItem title="Các tài liệu tham khảo:">
+           <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+             <SubItem>Giáo trình Tư tưởng Hồ Chí Minh (Bộ Giáo dục & Đào tạo).</SubItem>
+             <SubItem>Hồ Chí Minh: Toàn tập (Tập 10, 12) - NXB Chính trị quốc gia Sự thật.</SubItem>
+             <SubItem>Văn kiện Đại hội đại biểu toàn quốc của Đảng.</SubItem>
+             <SubItem>Cổng thông tin điện tử Đảng Cộng sản Việt Nam (dangcongsan.org.vn).</SubItem>
+             <SubItem>Các bài báo nghiên cứu từ Tạp chí Cộng sản & Tạp chí Tuyên giáo.</SubItem>
+           </ul>
+        </ListItem>
+      </motion.ul>
+    ),
+  },
 ];
