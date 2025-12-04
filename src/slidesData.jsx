@@ -37,9 +37,9 @@ export const slidesContent = [
       <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center">
         <p className="text-xl font-semibold mb-4">Các nội dung chính:</p>
         <ul className="text-left space-y-3 inline-block text-lg">
-            <li>3. Điều kiện để xây dựng khối đại đoàn kết toàn dân tộc</li>
-            <li>4. Hình thức, nguyên tắc tổ chức của khối đại đoàn kết toàn dân tộc - Mặt trận dân tộc thống nhất</li>
-            <li>5. Phương thức xây dựng khối đại đoàn kết dân tộc</li>
+            <li>1. Điều kiện để xây dựng khối đại đoàn kết toàn dân tộc</li>
+            <li>2. Hình thức, nguyên tắc tổ chức của khối đại đoàn kết toàn dân tộc - Mặt trận dân tộc thống nhất</li>
+            <li>3. Phương thức xây dựng khối đại đoàn kết dân tộc</li>
         </ul>
       </motion.div>
     ),
@@ -49,7 +49,7 @@ export const slidesContent = [
   {
     imageUrl: "https://images.hcmcpv.org.vn/res/news/2021/11/18-11-2021-mat-tran-dan-toc-thong-nhat-bieu-tuong-cua-khoi-dai-doan-ket-toan-dan-D02C716E.jpg",
     caption: "Đại hội toàn quốc thống nhất Mặt trận Việt Minh - Liên Việt thành Mặt trận Liên hiệp quốc dân Việt Nam, tại Tuyên Quang, ngày 3/3/1951.",
-    title: "3. ĐIỀU KIỆN ĐỂ XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC",
+    title: "1. ĐIỀU KIỆN ĐỂ XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC",
     details: (
       <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
         <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
@@ -161,7 +161,7 @@ export const slidesContent = [
   // Slide 7
   {
     imageUrl: "https://file3.qdnd.vn/data/images/0/2022/11/10/thutrang_la/mat-tran-to-quoc-1983.jpg?dpi=150&quality=100&w=870",
-    title: "4. HÌNH THỨC, NGUYÊN TẮC TỔ CHỨC CỦA KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC - MẶT TRẬN DÂN TỘC THỐNG NHẤT",
+    title: "2. HÌNH THỨC, NGUYÊN TẮC TỔ CHỨC CỦA KHỐI ĐẠI ĐOÀN KẾT TOÀN DÂN TỘC - MẶT TRẬN DÂN TỘC THỐNG NHẤT",
     caption: "Đại hội đại biểu toàn quốc Mặt trận Tổ quốc Việt Nam lần thứ II được tổ chức tại Hà Nội từ ngày 12 đến ngày 14-5-1983.",
     details: (
       <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
@@ -294,7 +294,7 @@ export const slidesContent = [
   // Slide 13
   {
     imageUrl: "https://kienthucplus.vn/wp-content/uploads/2023/04/bac-ho-chuyen-tham-quang-binh-vinh-linh.jpg ",
-    title: "5. PHƯƠNG THỨC XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT DÂN TỘC",
+    title: "3. PHƯƠNG THỨC XÂY DỰNG KHỐI ĐẠI ĐOÀN KẾT DÂN TỘC",
     details: (
       <motion.div variants={contentChildVariants} className="flex flex-col items-center justify-center h-full text-center p-4">
         <p className="text-xl md:text-2xl font-light italic mb-6 opacity-80">
